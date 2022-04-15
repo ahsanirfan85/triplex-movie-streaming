@@ -6,9 +6,10 @@ import apiConfig from '../../api/apiConfig';
 
 import './detail.scss';
 import CastList from './CastList';
-import VideoList from './VideoList';
+// import VideoList from './VideoList';
 
 import MovieList from '../../components/movie-list/MovieList';
+import LikeButton from '../../components/button/LikeButton';
 
 const Detail = () => {
 
@@ -24,6 +25,7 @@ const Detail = () => {
         }
         getDetail();
     }, [category, id]);
+    console.log(category);
 
     return (
         <>
@@ -51,7 +53,8 @@ const Detail = () => {
                                     <div className="section__header">
                                         <h2>Casts</h2>
                                     </div>
-                                    <CastList id={item.id}/>
+                                    <CastList id={ item.id } />
+                                    <LikeButton />
                                 </div>
                             </div>
                         </div>
