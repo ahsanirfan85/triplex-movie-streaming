@@ -24,7 +24,7 @@ const HeroSlide = () => {
             try {
                 const response = await tmdbApi.getMoviesList(movieType.popular, {params});
                 setMovieItems(response.results.slice(1, 4));
-                console.log(response);
+                
             } catch {
                 console.log('error');
             }
@@ -97,6 +97,7 @@ const HeroSlideItem = props => {
                         <OutlineButton onClick={setModalActive}>
                             Watch trailer
                         </OutlineButton>
+                        
                     </div>
                 </div>
                 <div className="hero-slide__item__content__poster">

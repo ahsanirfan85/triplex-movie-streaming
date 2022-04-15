@@ -37,7 +37,7 @@ const MovieList = props => {
         }
         getList();
     }, []);
-
+    
     return (
         <div className="movie-list">
             <Swiper
@@ -48,7 +48,8 @@ const MovieList = props => {
                 {
                     items.map((item, i) => (
                         <SwiperSlide key={i}>
-                            <MovieCard item={item} category={props.category}/>
+                            <MovieCard item={ item } category={ props.category } />
+                            
                         </SwiperSlide>
                     ))
                 }

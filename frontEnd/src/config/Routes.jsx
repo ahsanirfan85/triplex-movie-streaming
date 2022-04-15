@@ -6,9 +6,16 @@ import Home from '../pages/Home';
 import Catalog from '../pages/Catalog';
 import Detail from '../pages/detail/Detail';
 
+import Login from '../pages/Login';
+
 const Routes = () => {
     return (
         <Switch>
+            <Route
+                path='/login'
+                exact
+                component={Login}
+            />
             <Route
                 path='/:category/search/:keyword'
                 component={Catalog}
