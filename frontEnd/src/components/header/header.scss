@@ -2,13 +2,13 @@
 
 .logo {
     font-size: 2.5rem;
-    font-weight: 600;
+    font-weight: 400;
 
     @include flex(center, unset);
 
     img {
         margin-right: 10px;
-        width: 50px;
+        width: 150px;
 
         @include mobile {
             width: 30px;
@@ -50,7 +50,7 @@
 
         li {
             padding: 5px 0;
-            font-weight: 700;
+            font-weight: 600;
             position: relative;
             font-size: 1.5rem;
 
