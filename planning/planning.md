@@ -1,0 +1,2 @@
+- [Link to Google Docs planning document](https://docs.google.com/document/d/1L2UsYthpIVnakeb-KrX3hfL6qusBRvndln2uQJn1Q5M/edit?usp=sharing)
+- [Link to the Google Sheets issues document](https://docs.google.com/spreadsheets/d/18Wmp4r2EJ7UI0kNnZ9TkkE4iUoTldpAcQ6GFiGVn5oE/edit?usp=sharing)
