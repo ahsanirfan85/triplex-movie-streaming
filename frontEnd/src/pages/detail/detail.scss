@@ -1,7 +1,7 @@
 @use "../../scss/" as *;
 
 .banner {
-    height: 50vh;
+    height: 100vh;
     position: relative;
     background-position: center;
     background-size: cover;
@@ -33,7 +33,7 @@
     max-width: 1260px;
     margin-left: auto;
     margin-right: auto;
-    margin-top: -200px;
+    margin-top: -40rem;
     position: relative;
     padding: 0 2rem;
 
@@ -105,6 +105,10 @@
             font-size: 0.8rem;
         }
     }
+}
+
+.rating{
+    font: 100;
 }
 
 .video {

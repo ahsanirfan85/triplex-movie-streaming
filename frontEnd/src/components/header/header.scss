@@ -1,18 +1,25 @@
 @use "../../scss/" as *;
 
 .logo {
-    font-size: 2.5rem;
-    font-weight: 600;
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     @include flex(center, unset);
 
     img {
         margin-right: 10px;
-        width: 50px;
+        width: 150px;
+        justify-content: center;
+        align-items: center;
+        place-items: center;
+
 
         @include mobile {
-            width: 30px;
+            width: 150px;
             margin-right: 0;
+            padding: 2rem;  
         }
     }
 }
@@ -33,11 +40,12 @@
 
     &__wrap {
         @include flex(center, space-between);
-        height: 100%;
+        height: 80%;
         padding: 0 2rem;
 
         @include mobile {
             justify-content: center;
+            align-items: center;
         }
     }
 
@@ -50,7 +58,7 @@
 
         li {
             padding: 5px 0;
-            font-weight: 700;
+            font-weight: 600;
             position: relative;
             font-size: 1.5rem;
 
