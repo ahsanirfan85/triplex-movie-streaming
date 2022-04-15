@@ -18,11 +18,10 @@ const MovieCard = props => {
     return (
         <Link to={link}>
             <div className="movie-card" style={{backgroundImage: `url(${bg})`}}>
-                <div className="movie-card__content">
-        
-                </div>
+                {/* <div className="movie-card__content">
+                </div> */}
             </div>
-            <h3>{item.title || item.name}</h3>
+            {/* <h3>{item.title || item.name}</h3> */}
         </Link>
     );
 }
