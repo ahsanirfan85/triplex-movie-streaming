@@ -97,6 +97,7 @@ const HeroSlideItem = props => {
                         <OutlineButton onClick={setModalActive}>
                             Watch trailer
                         </OutlineButton>
+                        
                     </div>
                 </div>
                 <div className="hero-slide__item__content__poster">
