@@ -12,10 +12,11 @@ app.use(express.urlencoded({ extended: true })); // what does this do?
 
 // PG database client/connection setup
 const pg = require("pg"); // requiring postgresql
-const dbParams = "postgres://szspapxy:nRwusw-cDXM8ChwgCobzxirI6Wt4XIST@rajje.db.elephantsql.com/szspapxy"; 
+const dbParams = process.env.DB_URL; 
 const client = new pg.Client(dbParams); // creating a new connection to the DB
 
-client.connect(function(err) { // connecting to the database
+// connecting to the database
+client.connect(function(err) {
   if(err) {
     return console.error('could not connect to postgres', err);
   }
