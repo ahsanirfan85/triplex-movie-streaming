@@ -2,15 +2,13 @@
 
 .movie-list {
     .swiper-slide {
-        width: 12%;
-        margin: 0 1%;
+        width: 13%;
+        margin: 0 0.1%;
         padding: 0;
-        background-color: #e6e6e6;
         transition: all 0.2s;
         transform: scale(1);
-        &:hover {
-            background-color: #e6e6e6;
-            color: black;
+        
+        &:hover { 
             transition: all 0.2s;
             transform: scale(1.1);
         }
