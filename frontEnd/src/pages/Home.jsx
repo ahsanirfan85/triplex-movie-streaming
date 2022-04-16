@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 
 import { OutlineButton } from '../components/button/Button';
 import HeroSlide from '../components/hero-slide/HeroSlide';
@@ -7,7 +7,15 @@ import MovieList from '../components/movie-list/MovieList';
 
 import { category, movieType, tvType } from '../api/tmdbApi';
 
+import Userfront from '@userfront/react';
+
 const Home = () => {
+
+    if (!Userfront.accessToken()) {
+        return (
+            <Redirect to={{pathname: '/login'}} />
+        )
+    }
     return (
         <>
             <HeroSlide/>

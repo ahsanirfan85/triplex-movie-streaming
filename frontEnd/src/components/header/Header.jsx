@@ -6,6 +6,8 @@ import './header.scss';
 
 import logo from '../../assets/tmovie.png';
 
+import Userfront from '@userfront/react';
+
 const headerNav = [
     {
         display: 'Home',
@@ -22,9 +24,18 @@ const headerNav = [
     {
         display: 'Login',
         path: '/login'
+    },
+    {
+        display: 'Sign Up',
+        path: '/signup'
     }
 ];
 
+Userfront.init("9ny8z7vb");
+
+const LogoutButton = Userfront.build({
+  toolId: "blboal"
+});
 const Header = () => {
 
     const { pathname } = useLocation();
@@ -61,7 +72,9 @@ const Header = () => {
                                 </Link>
                             </li>
                         ))
+                        
                     }
+                    <LogoutButton />
                 </ul>
             </div>
         </div>
