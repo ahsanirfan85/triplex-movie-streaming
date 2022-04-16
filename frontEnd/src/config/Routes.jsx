@@ -7,6 +7,7 @@ import Catalog from '../pages/Catalog';
 import Detail from '../pages/detail/Detail';
 
 import Login from '../pages/Login';
+import Signup from '../pages/Signup';
 
 const Routes = () => {
     return (
@@ -15,6 +16,16 @@ const Routes = () => {
                 path='/login'
                 exact
                 component={Login}
+            />
+            <Route
+                path='/signup'
+                exact
+                component={Signup}
+            />
+            <Route
+                path='/dashboard'
+                exact
+                component={Home}
             />
             <Route
                 path='/:category/search/:keyword'
