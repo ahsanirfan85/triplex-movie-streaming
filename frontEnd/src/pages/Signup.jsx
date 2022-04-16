@@ -5,8 +5,8 @@ import Userfront from '@userfront/react';
 const Login = () => {
 
   Userfront.init("9ny8z7vb");
-  const LoginForm = Userfront.build({
-    toolId: "adkoln"
+  const SignupForm = Userfront.build({
+    toolId: "rlbkak"
   });
 
     return (
@@ -14,8 +14,8 @@ const Login = () => {
         <div className='container'>
           <div className='section mb-3'>
             <PageHeader />
-            <h1>LOGIN</h1>
-            <LoginForm />
+            <h1>Sign Up</h1>
+            <SignupForm />
           </div>
         </div>
       </>

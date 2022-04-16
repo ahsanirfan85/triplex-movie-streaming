@@ -9,6 +9,7 @@ import Detail from '../pages/detail/Detail';
 import Login from '../pages/Login';
 import MoviePlay from '../pages/MoviePlay';
 import Forums from '../pages/Forums';
+import Signup from '../pages/Signup';
 
 const Routes = () => {
     return (
@@ -27,6 +28,16 @@ const Routes = () => {
                 path='/forums'
                 exact
                 component={Forums}
+            />
+            <Route
+                path='/signup'
+                exact
+                component={Signup}
+            />
+            <Route
+                path='/dashboard'
+                exact
+                component={Home}
             />
             <Route
                 path='/:category/search/:keyword'
