@@ -1,7 +1,7 @@
 @use "../../scss/" as *;
 
 .banner {
-    height: 100vh;
+    height: 50vh;
     position: relative;
     background-position: center;
     background-size: cover;
@@ -33,12 +33,13 @@
     max-width: 1260px;
     margin-left: auto;
     margin-right: auto;
-    margin-top: -40rem;
+    margin-top: -20rem;
     position: relative;
     padding: 0 2rem;
 
     &__poster {
         flex: 1;
+
 
         @include mobile {
             display: none;
@@ -50,6 +51,7 @@
             background-repeat: no-repeat;
             border-radius: $border-radius;
             padding-top: 165%;
+            margin-top: 1.5rem;
         }
     }
 
@@ -109,12 +111,64 @@
 
 .rating{
     font: 100;
+    margin: 20px 0px 0px 20px;
 }
 
 .video {
     margin-bottom: 3rem;
+    width: 500px;
 
     &__title {
-        margin-bottom: 1.5rem;
+        display: none;
+    }
+}
+
+.social {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    margin: 1.5rem 0;
+
+    &__link {
+        margin-right: 2rem;
+        background-color: $black;
+        border: 1px solid $white;
+        padding: 0.6rem 1.2rem;
+        text-align: center;
+        width: 200px
+    }
+
+}
+
+.button-link {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    margin: 1.5rem 0;
+}
+
+.rate-star {
+    @include flex(center, center);
+    flex-direction: row;
+
+
+    &__item {
+        font-size: 1.2rem;
+        margin-right: 1rem;
+    }
+}
+
+.movie-play{
+    @include flex(center, center);
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    width: 80%;
+    height: 10% !important;
+
+    &__player {
+        margin-left: 20rem;
+        margin-top: -5rem;
+        
+        
     }
 }

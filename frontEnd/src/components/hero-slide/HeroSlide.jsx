@@ -52,8 +52,9 @@ const HeroSlide = () => {
                 }
             </Swiper>
             {
-                movieItems.map((item, i) => <TrailerModal key={i} item={item}/>)
+                movieItems.map((item, i) => <TrailerModal key={ i } item={ item } />)
             }
+            
         </div>
     );
 }
@@ -72,7 +73,8 @@ const HeroSlideItem = props => {
         const videos = await tmdbApi.getVideos(category.movie, item.id);
 
         if (videos.results.length > 0) {
-            const videSrc = 'https://www.youtube.com/embed/' + videos.results[0].key;
+            const videSrc = 'https://www.youtube.com/embed/' + videos.results[0].key + "?autoplay=1&mute=0";
+
             modal.querySelector('.modal__content > iframe').setAttribute('src', videSrc);
         } else {
             modal.querySelector('.modal__content').innerHTML = 'No trailer';
@@ -120,7 +122,8 @@ const TrailerModal = props => {
     return (
         <Modal active={false} id={`modal_${item.id}`}>
             <ModalContent onClose={onClose}>
-                <iframe ref={iframeRef} width="100%" height="500px" title="trailer"></iframe>
+                <iframe ref={iframeRef} width="100%" height="100%" controls allow='autoplay; encrypted-media'
+        allowFullScreen title="trailer"></iframe>
             </ModalContent>
         </Modal>
     )

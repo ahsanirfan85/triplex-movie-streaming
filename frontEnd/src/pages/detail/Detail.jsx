@@ -1,15 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
+import { Link } from 'react-router-dom';
 
 import tmdbApi from '../../api/tmdbApi';
 import apiConfig from '../../api/apiConfig';
 
 import './detail.scss';
 import CastList from './CastList';
-// import VideoList from './VideoList';
+import VideoList from './VideoList';
 
 import MovieList from '../../components/movie-list/MovieList';
-import LikeButton from '../../components/button/LikeButton';
+import Watchlist from '../../components/button/Watchlist';
+import RateButton from '../../components/button/RateButton';
 
 const Detail = () => {
 
@@ -25,7 +27,6 @@ const Detail = () => {
         }
         getDetail();
     }, [category, id]);
-    console.log(category);
 
     return (
         <>
@@ -54,21 +55,26 @@ const Detail = () => {
                                         <h2>Casts</h2>
                                     </div>
                                     <CastList id={ item.id } />
-                                    <LikeButton />
-                                </div>
-                                <div className="">
-                                    <p>Like</p><p>Rate</p>
+                                    <div className='social'>
+                                        <Watchlist />
+                                        <RateButton />
+                                    </div>
+                                    <div className='button-link'>
+                                        <Link to="/movieplay" className='social__link'>Play Now!</Link>
+                                        <Link to="/forums" className='social__link'>Discussion Forum</Link>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                         <div className="container">
                             <div className="section mb-3">
-                                <div className="section__header mb-2">
-                                    <h2>Similar</h2>
-                                    {/* <div className="section mb-3">
+                                <div className="section__details mb-2">
+                                    <h2>More Trailers</h2>
+                                    <div className="section__trailer mb-3">
                                         <VideoList id={item.id}/>
-                                    </div> */}
-                            </div>
+                                    </div>
+                                </div>
+                                <h2>More Like This</h2>
                                 <MovieList category={category} type="similar" id={item.id}/>
                             </div> 
                         </div>

@@ -7,6 +7,8 @@ import Catalog from '../pages/Catalog';
 import Detail from '../pages/detail/Detail';
 
 import Login from '../pages/Login';
+import MoviePlay from '../pages/MoviePlay';
+import Forums from '../pages/Forums';
 
 const Routes = () => {
     return (
@@ -15,6 +17,16 @@ const Routes = () => {
                 path='/login'
                 exact
                 component={Login}
+            />
+            <Route
+                path='/movieplay'
+                exact
+                component={MoviePlay}
+            />
+            <Route
+                path='/forums'
+                exact
+                component={Forums}
             />
             <Route
                 path='/:category/search/:keyword'

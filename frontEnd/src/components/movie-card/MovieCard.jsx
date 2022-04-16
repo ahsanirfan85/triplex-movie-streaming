@@ -21,7 +21,7 @@ const MovieCard = props => {
                 {/* <div className="movie-card__content">
                 </div> */}
             </div>
-            {/* <h3>{item.title || item.name}</h3> */}
+            <h4>{item.title || item.name}</h4>
         </Link>
     );
 }
