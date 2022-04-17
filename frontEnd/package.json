@@ -9,6 +9,7 @@
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
+    "@userfront/core": "^0.3.1",
     "@userfront/react": "^0.2.22",
     "axios": "^0.22.0",
     "query-string": "^7.0.1",
