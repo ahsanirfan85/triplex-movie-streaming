@@ -2,7 +2,6 @@ import React from 'react';
 import Userfront from '@userfront/core';
 import './styles.scss';
 import Alert from './Alert';
-import SSOButton from './SSOButton';
 
 class LoginForm extends React.Component {
     constructor(props) {
@@ -72,9 +71,8 @@ class LoginForm extends React.Component {
             </label>
             <Alert message={this.state.alertMessage} /> 
             <button class="button-84" role="button" type="submit">Log in</button>
-            <p>or</p>
+            <p>Signup here</p>
 
-            <SSOButton provider="google" />
           </form>
         </div>
       );
