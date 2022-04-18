@@ -31,7 +31,6 @@ const headerNav = [
         path: '/signup'
     }
 ];
-
 // const LogoutButton = Userfront.build({
 //   toolId: "blboal"
 // });
