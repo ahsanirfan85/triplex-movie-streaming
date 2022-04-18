@@ -45,7 +45,7 @@ class LoginForm extends React.Component {
   
     render() {
       return (
-        <div class="login">
+        <div className="login">
           
           <form onSubmit={this.handleSubmit}>
           <h2>Sign in</h2>
@@ -70,7 +70,7 @@ class LoginForm extends React.Component {
               />
             </label>
             <Alert message={this.state.alertMessage} /> 
-            <button class="button-84" role="button" type="submit">Log in</button>
+            <button className="button-84" role="button" type="submit">Log in</button>
             <p>Signup here</p>
 
           </form>

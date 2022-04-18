@@ -9,7 +9,6 @@ import Footer from "./components/footer/Footer"
 
 import Routes from "./config/Routes"
 
-import Userfront from '@userfront/react';
 
 function App() {
   return (

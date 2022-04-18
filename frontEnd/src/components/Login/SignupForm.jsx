@@ -24,7 +24,7 @@ class SignupForm extends React.Component {
     handleInputChange(event) {
       event.preventDefault();
       // Reset the alert to empty
-      this.setAlertMessage();
+      //this.setAlertMessage();
       const target = event.target;
       this.setState({
         [target.name]: target.value,
@@ -55,7 +55,7 @@ class SignupForm extends React.Component {
     }
     render() {
       return (
-        <div class="login">
+        <div className="login">
             
           <form onSubmit={this.handleSubmit}>
           <h2>Sign Up</h2>
@@ -100,7 +100,7 @@ class SignupForm extends React.Component {
               />
             </label>
             <Alert message={this.state.alertMessage} />
-            <button class="button-84" role="button" type="submit">Sign up</button>
+            <button className="button-84" role="button" type="submit">Sign up</button>
           </form>
         </div>
       );
