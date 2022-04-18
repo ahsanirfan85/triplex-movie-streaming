@@ -1,48 +1,64 @@
-import React, { useRef, useEffect } from 'react';
-
+import React, { useRef, useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-
 import './header.scss';
-
 import logo from '../../assets/tmovie.png';
-
- import Userfront from '@userfront/react';
 import LogoutButton from '../Login/LogoutButton';
+import Cookies from 'js-cookie'
+import Userfront from '@userfront/core';
 
-const headerNav = [
-    {
-        display: 'Home',
-        path: '/'
-    },
-    {
-        display: 'Movies',
-        path: '/movie'
-    },
-    {
-        display: 'TV Series',
-        path: '/tv'
-    },
-    {
-        display: 'Login',
-        path: '/login'
-    },
-    {
-        display: 'Sign Up',
-        path: '/signup'
-    }
-];
-// const LogoutButton = Userfront.build({
-//   toolId: "blboal"
-// });
 const Header = () => {
+    console.log(Userfront.user.name);
+    const loggedOut = [
+        {
+            display: 'Home',
+            path: '/'
+        },
+        {
+            display: 'Login',
+            path: '/login'
+        },
+        {
+            display: 'Sign Up',
+            path: '/signup'
+        }
+    ];
+
+    const loggedIn = [
+        {
+            display: `Welcome, ${Userfront.user.name}!`,
+            path: ''
+        },
+        {
+            display: 'Home',
+            path: '/'
+        },
+        {
+            display: 'Movies',
+            path: '/movie'
+        },
+        {
+            display: 'TV Series',
+            path: '/tv'
+        }
+    ];
+
+    const [headerNav, setHeaderNav] = useState(loggedOut);
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+    useEffect(() => {
+        const cookies = Cookies.get();
+
+        if (Object.keys(cookies).length !== 0) {
+            setHeaderNav(loggedIn);
+            setIsLoggedIn(true);
+        }
+        
+    }, []);
 
     const { pathname } = useLocation();
     const headerRef = useRef(null);
-
     const active = headerNav.findIndex(e => e.path === pathname);
-    useEffect(() => {
-        Userfront.init('9ny8z7vb')
-    }, []);
+
     useEffect(() => {
         const shrinkHeader = () => {
             if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
@@ -74,10 +90,7 @@ const Header = () => {
                         ))
                         
                     }
-                    {/* <li>
-                    <LogoutButton />
-                    </li> */}
-                    <LogoutButton />
+                    {isLoggedIn ? <LogoutButton /> : ""}
                 </ul>
             </div>
         </div>
