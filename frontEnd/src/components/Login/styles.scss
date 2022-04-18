@@ -12,7 +12,7 @@ label {
     justify-content: left;
 }
 
-#login {
+.login {
     display: flex;
     justify-content:center;
     justify-items: center;
@@ -75,6 +75,7 @@ label {
 
 #alert {
     color: red;
+    margin-bottom: 15px;
 }
 
 
