@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
-
+import "../Forum/forums.scss"
 import DiscussionBoard from 'react-discussion-board'
 
 import 'react-discussion-board/dist/index.css'
 
-const App = () => {
+const Forums = () => {
   const allPosts = [
     {
       profileImage:
@@ -41,10 +41,10 @@ const App = () => {
   }
 
   return (
-    <div className='App'>
+    <div className='forums'>
       <DiscussionBoard posts={posts} onSubmit={submitPost} />
     </div>
   )
 }
 
-export default App
+export default Forums
