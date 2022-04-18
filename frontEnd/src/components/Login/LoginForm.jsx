@@ -3,6 +3,8 @@ import Userfront from '@userfront/core';
 import './styles.scss';
 import Alert from './Alert';
 
+Userfront.init('9ny8z7vb');
+
 class LoginForm extends React.Component {
     constructor(props) {
       super(props);
@@ -25,7 +27,7 @@ class LoginForm extends React.Component {
       });
       this.setState({ alertMessage: "" });
     }
-  
+
     handleSubmit(event) {
       event.preventDefault();
      // Reset the alert to empty
