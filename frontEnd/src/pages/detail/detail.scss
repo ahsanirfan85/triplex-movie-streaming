@@ -40,6 +40,7 @@
     &__poster {
         flex: 1;
 
+
         @include mobile {
             display: none;
         }
@@ -108,15 +109,6 @@
     }
 }
 
-
-.video {
-    margin-bottom: 3rem;
-
-    &__title {
-        font-size: 1.5rem;
-        margin-bottom: 1rem;
-    }
-
 .rating{
     font: 100;
     margin: 20px 0px 0px 20px;
@@ -167,7 +159,6 @@
 }
 
 .movie-play{
-
     width: 100vw;
     height: 100vh;
     overflow: hidden;   
@@ -199,17 +190,3 @@
     display: block;
     color: red;
   }
-
-    @include flex(center, center);
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-    width: 80%;
-    height: 10% !important;
-
-    &__player {
-        margin-left: 20rem;
-        margin-top: -5rem;
-        
-        
-    }
-}
