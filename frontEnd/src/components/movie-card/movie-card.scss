@@ -8,15 +8,11 @@
     padding: 150% 0 0 0;
     border-radius: $border-radius;
     margin-bottom: 1rem;
-<<<<<<< HEAD
-=======
+
     transition: ease-out 0.9s;
     transform: scale(1);
     
-    
->>>>>>> feature/moviepage
 
-    
 
     &::before {
         content: "";
@@ -25,30 +21,8 @@
         left: 0;
         bottom: 0;
         right: 0;
-        opacity: 0;
-        transition: opacity 0.3s ease;
-        // background-color: $black;
-        // border-radius: $border-radius;
+        background-color: rgba(0, 0, 0, 0.5);
+
     }
 
-<<<<<<< HEAD
-    @media (hover: hover) and (pointer: fine) {
-        &:hover::before {
-            opacity: 0;
-            transform: scale(1.5);
-        }
-
-        &:hover .btn {
-            transform: translate(-50%, -50%) scale(1);
-            
-        }
-    }
-=======
-    &:hover {
-        background-color: #e6e6e6;
-        color: black;
-        transition: ease-in 0.1s;
-        transform: scale(1);
-      }
->>>>>>> feature/moviepage
 }

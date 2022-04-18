@@ -9,23 +9,19 @@ import Footer from "./components/footer/Footer"
 
 import Routes from "./config/Routes"
 
-// import Userfront from "@userfront/react"
-
 function App() {
   return (
-    <>
-      <BrowserRouter>
-        <Route
-          render={(props) => (
-            <>
-              <Header {...props} />
-              <Routes />
-              <Footer />
-            </>
-          )}
-        />
-      </BrowserRouter>
-    </>
+    <BrowserRouter>
+      <Route
+        render={(props) => (
+          <>
+            <Header {...props} />
+            <Routes />
+            <Footer />
+          </>
+        )}
+      />
+    </BrowserRouter>
   )
 }
 

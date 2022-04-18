@@ -9,7 +9,7 @@ import Forum from "../components/Forum"
 
 import { category, movieType } from '../api/tmdbApi';
 
-const Home = () => {
+const Forums = () => {
     return (
         <>
             <HeroSlide/>
@@ -34,9 +34,4 @@ const Home = () => {
     );
 }
 
-<<<<<<< HEAD
-export default Home;
-=======
 export default Forums
-
->>>>>>> feature/moviepage

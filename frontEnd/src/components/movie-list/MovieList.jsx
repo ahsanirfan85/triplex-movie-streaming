@@ -4,12 +4,12 @@ import PropTypes from 'prop-types';
 import './movie-list.scss';
 
 import { SwiperSlide, Swiper } from 'swiper/react';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 
-import Button from '../button/Button';
+// import Button from '../button/Button';
 
 import tmdbApi, { category } from '../../api/tmdbApi';
-import apiConfig from '../../api/apiConfig';
+// import apiConfig from '../../api/apiConfig';
 
 import MovieCard from '../movie-card/MovieCard';
 
@@ -36,7 +36,7 @@ const MovieList = props => {
             setItems(response.results);
         }
         getList();
-    }, []);
+    }, [props.type, props.category, props.id]); // added props to disable warning
     
     return (
         <div className="movie-list">

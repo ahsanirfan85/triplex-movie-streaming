@@ -7,13 +7,13 @@ import Catalog from '../pages/Catalog';
 import Detail from '../pages/detail/Detail';
 
 import Login from '../pages/Login';
-<<<<<<< HEAD
-=======
 import MoviePlay from '../pages/MoviePlay';
 import Forums from '../pages/Forums';
 import Signup from '../pages/Signup';
 import Watchlist from '../pages/Watchlist';
->>>>>>> feature/moviepage
+
+
+
 
 const Routes = () => {
     return (
@@ -24,37 +24,31 @@ const Routes = () => {
                 component={Login}
             />
             <Route
-<<<<<<< HEAD
-=======
                 path='/movieplay'
                 exact
                 component={MoviePlay}
+            />
+            <Route
+                path='/watchlist'
+                exact
+                component={Watchlist}
             />
             <Route
                 path='/forums'
                 exact
                 component={Forums}
             />
-            <Route path='/watchlist'>
-            <Watchlist />
-            </Route>
-            {/* <Route
-                path='/watchlist'
-                exact
-                component={Watchlist}
-            /> */}
             <Route
                 path='/signup'
                 exact
                 component={Signup}
             />
             <Route
-                path='/dashboard'
+                path='/home'
                 exact
                 component={Home}
             />
             <Route
->>>>>>> feature/moviepage
                 path='/:category/search/:keyword'
                 component={Catalog}
             />

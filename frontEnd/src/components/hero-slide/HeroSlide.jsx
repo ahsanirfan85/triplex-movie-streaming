@@ -11,7 +11,6 @@ import apiConfig from '../../api/apiConfig';
 
 import './hero-slide.scss';
 import { useHistory } from 'react-router';
-// import HeroButtons from '../button/HeroButton';
 
 const HeroSlide = () => {
 
@@ -53,15 +52,18 @@ const HeroSlide = () => {
                 }
             </Swiper>
             {
-                movieItems.map((item, i) => <TrailerModal key={i} item={item}/>)
+                movieItems.map((item, i) => <TrailerModal key={ i } item={ item } />)
             }
+            
         </div>
     );
 }
 
-const HeroSlideItem = ({item, className, data}) => {
+const HeroSlideItem = props => {
 
     let history = useHistory();
+
+    const item = props.item;
 
     const background = apiConfig.originalImage(item.backdrop_path ? item.backdrop_path : item.poster_path);
 
@@ -71,7 +73,8 @@ const HeroSlideItem = ({item, className, data}) => {
         const videos = await tmdbApi.getVideos(category.movie, item.id);
 
         if (videos.results.length > 0) {
-            const videSrc = 'https://www.youtube.com/embed/' + videos.results[0].key;
+            const videSrc = 'https://www.youtube.com/embed/' + videos.results[0].key + "?autoplay=1&mute=0";
+
             modal.querySelector('.modal__content > iframe').setAttribute('src', videSrc);
         } else {
             modal.querySelector('.modal__content').innerHTML = 'No trailer';
@@ -82,7 +85,7 @@ const HeroSlideItem = ({item, className, data}) => {
 
     return (
         <div
-            className={`hero-slide__item ${className}`}
+            className={`hero-slide__item ${props.className}`}
             style={{backgroundImage: `url(${background})`}}
         >
             <div className="hero-slide__item__content container">
@@ -96,7 +99,6 @@ const HeroSlideItem = ({item, className, data}) => {
                         <OutlineButton onClick={setModalActive}>
                             Watch trailer
                         </OutlineButton>
-                        {/* <HeroButtons data={data} /> */}
                         
                     </div>
                 </div>
@@ -120,7 +122,8 @@ const TrailerModal = props => {
     return (
         <Modal active={false} id={`modal_${item.id}`}>
             <ModalContent onClose={onClose}>
-                <iframe ref={iframeRef} width="100%" height="500px" title="trailer"></iframe>
+                <iframe ref={iframeRef} width="100%" height="100%" controls allow='autoplay; encrypted-media'
+        allowFullScreen title="trailer"></iframe>
             </ModalContent>
         </Modal>
     )

@@ -1,7 +1,7 @@
 @use "../../scss/" as *;
 
 .banner {
-    height: 100vh;
+    height: 50vh;
     position: relative;
     background-position: center;
     background-size: cover;
@@ -33,7 +33,7 @@
     max-width: 1260px;
     margin-left: auto;
     margin-right: auto;
-    margin-top: -40rem;
+    margin-top: -20rem;
     position: relative;
     padding: 0 2rem;
 
@@ -50,6 +50,7 @@
             background-repeat: no-repeat;
             border-radius: $border-radius;
             padding-top: 165%;
+            margin-top: 1.5rem;
         }
     }
 
@@ -107,14 +108,25 @@
     }
 }
 
+
 .video {
     margin-bottom: 3rem;
 
     &__title {
-<<<<<<< HEAD
-        margin-bottom: 1.5rem;
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
     }
-=======
+
+.rating{
+    font: 100;
+    margin: 20px 0px 0px 20px;
+}
+
+.video {
+    margin-bottom: 3rem;
+    width: 500px;
+
+    &__title {
         display: none;
     }
 }
@@ -155,6 +167,7 @@
 }
 
 .movie-play{
+
     width: 100vw;
     height: 100vh;
     overflow: hidden;   
@@ -176,7 +189,6 @@
     cursor: pointer;
     z-index: 999;
 
->>>>>>> feature/moviepage
 }
 
 .hide {
@@ -187,3 +199,17 @@
     display: block;
     color: red;
   }
+
+    @include flex(center, center);
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    width: 80%;
+    height: 10% !important;
+
+    &__player {
+        margin-left: 20rem;
+        margin-top: -5rem;
+        
+        
+    }
+}
