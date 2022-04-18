@@ -6,7 +6,8 @@ import './header.scss';
 
 import logo from '../../assets/tmovie.png';
 
-import Userfront from '@userfront/react';
+ import Userfront from '@userfront/react';
+import LogoutButton from '../Login/LogoutButton';
 
 const headerNav = [
     {
@@ -31,18 +32,18 @@ const headerNav = [
     }
 ];
 
-Userfront.init("9ny8z7vb");
-
-const LogoutButton = Userfront.build({
-  toolId: "blboal"
-});
+// const LogoutButton = Userfront.build({
+//   toolId: "blboal"
+// });
 const Header = () => {
 
     const { pathname } = useLocation();
     const headerRef = useRef(null);
 
     const active = headerNav.findIndex(e => e.path === pathname);
-
+    useEffect(() => {
+        Userfront.init('9ny8z7vb')
+    }, []);
     useEffect(() => {
         const shrinkHeader = () => {
             if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
@@ -74,6 +75,9 @@ const Header = () => {
                         ))
                         
                     }
+                    {/* <li>
+                    <LogoutButton />
+                    </li> */}
                     <LogoutButton />
                 </ul>
             </div>

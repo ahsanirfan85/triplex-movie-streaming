@@ -35,7 +35,7 @@ const Routes = () => {
                 component={Signup}
             />
             <Route
-                path='/dashboard'
+                path='/home'
                 exact
                 component={Home}
             />
