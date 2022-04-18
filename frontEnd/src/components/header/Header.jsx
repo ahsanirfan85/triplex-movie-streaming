@@ -6,7 +6,7 @@ import './header.scss';
 
 import logo from '../../assets/tmovie.png';
 
- import Userfront from '@userfront/react';
+import Userfront from '@userfront/react';
 import LogoutButton from '../Login/LogoutButton';
 
 const headerNav = [
@@ -74,10 +74,7 @@ const Header = () => {
                         ))
                         
                     }
-                    {/* <li>
-                    <LogoutButton />
-                    </li> */}
-                    <LogoutButton />
+                    {false ? <LogoutButton /> : ""}
                 </ul>
             </div>
         </div>
