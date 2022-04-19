@@ -33,25 +33,10 @@ const Forums = () => {
     <>
       <div className="forums-container">
         <div className="forums">
-          <DiscussionBoard
-
-
-            submitPost={ submitPost }
-            posts={ posts }
-            onDeletePost={ (post) => {
-              const newPosts = posts.filter(p => p.id !== post.id)
-              setPosts(newPosts)
-            } }
-          />
-        </div>
-
-        <button onDeletePost={ (post) => {
-          const newPosts = posts.filter(p => p.id !== post.id)
-          setPosts(newPosts)
-        } }
-        >DELETE</button>
-
+        <DiscussionBoard posts={posts} onSubmit={submitPost} />
+        
       </div>
+    </div>
 
 
       

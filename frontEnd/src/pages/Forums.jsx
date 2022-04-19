@@ -8,12 +8,7 @@ const Forums = () => {
         <>
         <PageHeader />
             <h1 className='forums__title'>DISCUSSION FORUM</h1>
-            <div className="forums-container">
-                <div className="forums">
-                    <Forum />
-
-                </div>
-            </div>
+            <Forum />
         </>
     );
 }

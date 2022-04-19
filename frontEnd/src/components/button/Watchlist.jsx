@@ -3,26 +3,26 @@ class Watchlist extends Component {
   constructor() {
     super();
     this.state = {
-      liked: false
+      clicked: false
     };
     this.handleClick = this.handleClick.bind(this);
   } 
   
   handleClick() {
     this.setState({
-      liked: !this.state.liked
+      clicked: !this.state.clicked
     });
   }
   
   render() {
-    // const text = this.state.liked ? 'liked' : 'haven\'t liked';
-    const label = this.state.liked ? 'Remove watchlist ' : 'Add to watchlist ';
+    // const text = this.state.clicked ? 'clicked' : 'haven\'t clicked';
+    const label = this.state.clicked ? 'Remove watchlist ' : 'Add to watchlist ';
     return (
       <>
 
         <button className="btn-like" onClick={this.handleClick}>
           {label}
-          <i class="fa-solid fa-plus"></i>
+          <i className="fa-solid fa-plus"></i>
         </button>
         
         </>

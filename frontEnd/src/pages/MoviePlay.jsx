@@ -10,8 +10,6 @@ class MoviePlay extends Component {
     console.log(this.player);
     this.player.toggleFullscreen();
   }
-
-
   
   render() {
     return (
