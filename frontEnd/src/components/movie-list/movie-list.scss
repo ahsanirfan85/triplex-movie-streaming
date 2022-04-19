@@ -1,14 +1,16 @@
 @use "../../scss/breakpoint" as *;
 
 .movie-list {
+
+
     .swiper-slide {
         width: 13%;
-        max-height: 300px;
         margin: 0 0.1%;
         padding: 0;
-        transition: ease-out 0.9s;
+        transition: ease-out 1s;
         transform: scale(1);
         
+
         &:hover { 
             transition: ease-in 0.1s;
             transform: scale(1.1);

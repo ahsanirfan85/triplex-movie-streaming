@@ -8,11 +8,7 @@
     padding: 150% 0 0 0;
     border-radius: $border-radius;
     margin-bottom: 1rem;
-    transition: ease-out 0.9s;
-    transform: scale(1);
     
-    
-
 
     &::before {
         content: "";
@@ -21,14 +17,21 @@
         left: 0;
         bottom: 0;
         right: 0;
-        background-color: $black;
         opacity: 0;
+        transition: ease-out 1s;
+        transform: scale(1);
     }
 
-    &:hover {
-        background-color: #e6e6e6;
-        color: black;
-        transition: ease-in 0.1s;
-        transform: scale(1);
-      }
+      @media (hover: hover) and (pointer: fine) {
+        &:hover::before {
+            opacity: 0.8;
+        }
+
+        &:hover .btn {
+            transform: translate(-50%, -50%) scale(1);
+        }
+    }
+
+
+
 }

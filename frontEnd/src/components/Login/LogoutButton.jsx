@@ -40,7 +40,7 @@ class LogoutButton extends React.Component {
   }
 
   render() {
-    console.log(Userfront)
+    // console.log(Userfront)
     return (
       <li
         id="logout-button"

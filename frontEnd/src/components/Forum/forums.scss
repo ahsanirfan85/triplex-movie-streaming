@@ -1,9 +1,19 @@
 @use "../../scss/" as *;
 
+.forums-container{
+  padding: 10rem;
+  
+}
 
 .forums {
+  padding: 3rem 10rem 0 10rem;
+  border: 1px solid #e5e5e5;
+  border-radius: 10px;
 
-  margin-top: 20rem;
+  &__title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 
-  
 }
