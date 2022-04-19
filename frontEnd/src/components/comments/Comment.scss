@@ -37,7 +37,7 @@
     width: 80%;
 }
 
-@include mobile {
+  @include mobile {
     width: 90%;
 }
 
@@ -93,10 +93,16 @@
 
 .comment-posts {
   padding: 3rem;
-  margin-top: 2rem;
+  margin-top: 2.5rem;
   border-radius: 5px;
-  // margin-bottom: 2rem;
-  border: 1px solid white
+  border: 1px solid white;
+
+  &:hover{
+    background-color: #1B1A17;
+    transition: ease-in-out 0.1s;
+    cursor: pointer;
+  }
+
 }
 
 .comment-image-container{
@@ -109,5 +115,22 @@
 }
 
 .replies{
-  background-color: #1B1A17;
+  background-color: #070504;
+}
+
+.comment-action{
+  padding: .5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid white;
+  width: 100px;
+  margin-top:1rem;
+
+  &:hover{
+    background-color: white;
+    color: black;
+    transition: ease-in-out 0.1s;
+    cursor: pointer;
+  }
 }
