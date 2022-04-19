@@ -5,10 +5,10 @@ const Forums = () => {
     return (
     <>
     <PageHeader />
-        <div className="comments__header"><h1>Discussion Forum</h1></div>
-        {/* <div className='comments-container'> */}
-            <Comments commentsUrl="http://localhost:3004/comments" currentUserId="1" />
-        {/* </div> */}
+            <div className="comments__header"><h1>Discussion Forum</h1></div>
+            <div className="content-wrapper">
+                <Comments commentsUrl="http://localhost:3004/comments" currentUserId="1" />
+            </div>
     </>
   );
 };

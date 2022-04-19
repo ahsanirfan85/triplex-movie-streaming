@@ -3,27 +3,45 @@
 .comments-container{
   display: flex;
   flex-direction: column;
-  align-items: center;
+  width: 100%;
   border: 1px solid rgb(12, 255, 52);
   border-radius: 5px;
   margin: 2rem 10rem;
 }
 
+.content-wrapper {
+  border: 1px solid orange;
+  display: flex;
+  justify-content: center;
+}
+
 .comments {
   display: flex;
-  width: 100%;
+  width: 50%;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   border: 1px solid yellow;
   padding: 3rem;
 
+  
+  
   &__header {
     display:  flex;
     justify-content: center;
     font-size: 1rem;
     margin-right: 1rem;
   }
+
+  @include tablet {
+    width: 80%;
+}
+
+@include mobile {
+    width: 90%;
+}
+
+  
 }
 
 .comments-post {
@@ -32,7 +50,6 @@
   justify-content: flex-start;
   width: 100%;
   border: 1px solid rgb(110, 0, 254);
-  padding: 3rem;
   margin-top: 1rem;
 
   &__title {
@@ -67,4 +84,30 @@
 .comments-form {
   display: flex;
   flex-direction: column;
+}
+
+
+.comment-author{
+  font-size: 1.5rem;
+}
+
+.comment-posts {
+  padding: 3rem;
+  margin-top: 2rem;
+  border-radius: 5px;
+  // margin-bottom: 2rem;
+  border: 1px solid white
+}
+
+.comment-image-container{
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 1px solid white;
+  margin-left: .5rem;
+}
+
+.replies{
+  background-color: #1B1A17;
 }

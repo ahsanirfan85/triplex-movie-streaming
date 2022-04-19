@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import PageHeader from "../page-header/PageHeader"
 import "./Comment.scss"
 import CommentForm from "./CommentForm";
 import Comment from "./Comment";
@@ -63,10 +62,8 @@ const Comments = ({ commentsUrl, currentUserId }) => {
     <>
       <div className="comments">
         <div className='comments-post'>
-          <h3 className="comments-post__title">Write Something</h3>
-          {/* <div className='comments-form'> */}
+          <h3 className="comments-post__title">Write something</h3>
             <CommentForm submitLabel="Post" handleSubmit={ addComment } />
-          {/* </div> */}
         </div>
         
       <div className="comments-container">

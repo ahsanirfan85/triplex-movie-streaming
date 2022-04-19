@@ -28,7 +28,7 @@ const Comment = ({
   const replyId = parentId ? parentId : comment.id;
   const createdAt = new Date(comment.createdAt).toLocaleDateString();
   return (
-    <div key={comment.id} className="comment">
+    <div key={comment.id} className="comment-posts">
       <div className="comment-image-container">
         <img src="/frontEnd/public/user-icon.png" alt=''/>
       </div>
