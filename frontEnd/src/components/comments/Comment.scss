@@ -4,13 +4,13 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-  border: 1px solid rgb(12, 255, 52);
+  // border: 1px solid rgb(12, 255, 52);
   border-radius: 5px;
   margin: 2rem 10rem;
 }
 
 .content-wrapper {
-  border: 1px solid orange;
+  // border: 1px solid orange;
   display: flex;
   justify-content: center;
 }
@@ -21,7 +21,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border: 1px solid yellow;
+  // border: 1px solid yellow;
   padding: 3rem;
 
   
@@ -49,7 +49,7 @@
   flex-direction: column;
   justify-content: flex-start;
   width: 100%;
-  border: 1px solid rgb(110, 0, 254);
+  // border: 1px solid purple;
   margin-top: 1rem;
 
   &__title {
@@ -69,7 +69,8 @@
   &:hover {
     background-color: $white;
     color: $black;
-    transition: ease-in-out 0.5s;
+    transition: ease-in-out 0.1s;
+    cursor: pointer;
   }
 }
 
@@ -95,10 +96,11 @@
   padding: 3rem;
   margin-top: 2.5rem;
   border-radius: 5px;
-  border: 1px solid white;
+  border: 1px solid #545454;
 
   &:hover{
-    background-color: #1B1A17;
+    // background-color: #1B1A17;
+    border: 1px solid #ffffff;
     transition: ease-in-out 0.1s;
     cursor: pointer;
   }
@@ -128,9 +130,15 @@
   margin-top:1rem;
 
   &:hover{
-    background-color: white;
-    color: black;
+    background-color: $white;
+    color: $black;
     transition: ease-in-out 0.1s;
     cursor: pointer;
   }
+}
+
+.comment-actions {
+  display: flex;
+  flex-direction: row;
+  margin-right: 3rem;
 }
