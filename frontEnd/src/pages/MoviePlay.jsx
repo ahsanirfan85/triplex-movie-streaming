@@ -5,6 +5,7 @@ import "video-react/dist/video-react.css";
 import { Link } from "react-router-dom";
 
 const videoSrc = 'https://firebasestorage.googleapis.com/v0/b/fir-cbdb5.appspot.com/o/The%20Batman%20(2022)%201080p%20HDRip%20x264%20-%20ProLover.mp4?alt=media&token=99004156-4195-45a1-af0a-d2e5e872224a';
+
 class MoviePlay extends Component {
   componentDidMount() {
     console.log(this.player);
