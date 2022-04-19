@@ -1,2 +1,70 @@
 @use "../../scss/" as *;
 
+.comments-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid rgb(12, 255, 52);
+  border-radius: 5px;
+  margin: 2rem 10rem;
+}
+
+.comments {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid yellow;
+  padding: 3rem;
+
+  &__header {
+    display:  flex;
+    justify-content: center;
+    font-size: 1rem;
+    margin-right: 1rem;
+  }
+}
+
+.comments-post {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 100%;
+  border: 1px solid rgb(110, 0, 254);
+  padding: 3rem;
+  margin-top: 1rem;
+
+  &__title {
+    font-size: large;
+    font-weight: 500;
+  }
+
+}
+
+.comment-form-button{
+  padding: .8rem 3rem;
+  border: 1px solid $white;
+  background-color: transparent;
+  color: $white;
+
+
+  &:hover {
+    background-color: $white;
+    color: $black;
+    transition: ease-in-out 0.5s;
+  }
+}
+
+.comment-form-textarea {
+  width: 100%;
+  height: 10rem;
+  border-radius: 5px;
+  padding: 1rem;
+  margin-top: 1rem;
+}
+
+.comments-form {
+  display: flex;
+  flex-direction: column;
+}

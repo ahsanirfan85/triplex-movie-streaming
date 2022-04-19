@@ -1,33 +1,15 @@
-// import React from 'react';
-// import Forum from "../components/Forum"
-// import PageHeader from '../components/page-header/PageHeader';
-
-
-// const Forums = () => {
-//     return (
-//         <>
-//         <PageHeader />
-//             <h1 className='forums__title'>DISCUSSION FORUM</h1>
-            
-//             <Forum />
-            
-//         </>
-//     );
-// }
-
-// export default Forums
-
 import Comments from "../components/comments/Comments";
+import PageHeader from '../components/page-header/PageHeader';
 
 const Forums = () => {
-  return (
-    <div>
-      <h1>Hello Forum</h1>
-      <Comments
-        commentsUrl="http://localhost:3004/comments"
-        currentUserId="1"
-      />
-    </div>
+    return (
+    <>
+    <PageHeader />
+        <div className="comments__header"><h1>Discussion Forum</h1></div>
+        {/* <div className='comments-container'> */}
+            <Comments commentsUrl="http://localhost:3004/comments" currentUserId="1" />
+        {/* </div> */}
+    </>
   );
 };
 
