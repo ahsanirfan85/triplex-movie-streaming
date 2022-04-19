@@ -33,7 +33,7 @@ const Forums = () => {
     <>
       <div className="forums-container">
         <div className="forums">
-          <h1 className="where">am i</h1>
+          <h1 className="where">WRITE SOMETHING</h1>
         <DiscussionBoard posts={posts} onSubmit={submitPost} />
         
       </div>
