@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import "./Comment.scss"
 import CommentForm from "./CommentForm";
 import Comment from "./Comment";
+import axios from 'axios';
 import {
   getComments as getCommentsApi,
   createComment as createCommentApi,
@@ -10,11 +11,14 @@ import {
 } from "../../api";
 
 const Comments = ({ commentsUrl, currentUserId }) => {
+
   const [backendComments, setBackendComments] = useState([]);
   const [activeComment, setActiveComment] = useState(null);
+  
   const rootComments = backendComments.filter(
     (backendComment) => backendComment.parentId === null
   );
+  
   const getReplies = (commentId) =>
     backendComments
       .filter((backendComment) => backendComment.parentId === commentId)
@@ -22,6 +26,7 @@ const Comments = ({ commentsUrl, currentUserId }) => {
         (a, b) =>
           new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime()
       );
+
   const addComment = (text, parentId) => {
     createCommentApi(text, parentId).then((comment) => {
       setBackendComments([comment, ...backendComments]);
@@ -41,6 +46,7 @@ const Comments = ({ commentsUrl, currentUserId }) => {
       setActiveComment(null);
     });
   };
+
   const deleteComment = (commentId) => {
     if (window.confirm("Are you sure you want to remove comment?")) {
       deleteCommentApi().then(() => {
@@ -53,9 +59,15 @@ const Comments = ({ commentsUrl, currentUserId }) => {
   };
 
   useEffect(() => {
-    getCommentsApi().then((data) => {
-      setBackendComments(data);
-    });
+    // getCommentsApi().then((data) => {
+    //   setBackendComments(data);
+    // });
+    axios
+      .get("http://localhost:3001/")
+      .then((response) => {
+        console.log(response.data);
+        setBackendComments(response.data);
+      });
   }, []);
 
   return (
