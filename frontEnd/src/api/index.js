@@ -1,3 +1,5 @@
+import Userfront from "@userfront/core"
+
 export const getComments = async () => {
   return [
     {
@@ -41,7 +43,7 @@ export const createComment = async (text, parentId = null) => {
     body: text,
     parentId,
     userId: "1",
-    username: "davincecode",
+    username: Userfront.user.name,
     createdAt: new Date().toISOString(),
   }
 }
