@@ -65,7 +65,7 @@ const Detail = () => {
                                     </div>
                                     <div className='button-link'>
                                         <Link to="/movieplay" className='social__link'>Play Now!</Link>
-                                        <Link to={`/forums/${category}/${id}/${Userfront.user.userId}`} className='social__link'>Discussion Forum</Link>
+                                        <Link to={`/forums/${category}/${id}`} className='social__link'>Discussion Forum</Link>
                                     </div>
                                 </div>
                             </div>
