@@ -18,7 +18,7 @@ const Detail = () => {
     const { category, id } = useParams();
 
     const [item, setItem] = useState(null);
-
+    
     useEffect(() => {
         const getDetail = async () => {
             const response = await tmdbApi.detail(category, id, {params:{}});
@@ -40,8 +40,11 @@ const Detail = () => {
                             </div>
                             <div className="movie-content__info">
                                 <h1 className="title">
-                                    {item.title || item.name}
+                                    {item.title || item.name} 
                                 </h1>
+                                <h2 className="date" placeholder="Date Released: ">
+                                    Release Date: {item.release_date || item.first_air_date}
+                                </h2>
                                 <div className="genres">
                                     {
                                         item.genres && item.genres.slice(0, 5).map((genre, i) => (
