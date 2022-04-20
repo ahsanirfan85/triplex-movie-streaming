@@ -35,7 +35,7 @@ const Comment = ({
           <img src={ profilepic } alt='' />
         </div>
         <div className="comment-author">{ comment.username }</div>
-        <div>{createdAt}</div>
+        <div className='comment-date'>{createdAt}</div>
       </div>
       <div className="comment-right-part">
         <div className="comment-content">

@@ -4,28 +4,23 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-  // border: 1px solid rgb(12, 255, 52);
   border-radius: 5px;
   margin: 2rem 10rem;
 }
 
 .content-wrapper {
-  // border: 1px solid orange;
   display: flex;
   justify-content: center;
 }
 
 .comments {
   display: flex;
-  width: 50%;
+  width: 60%;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  // border: 1px solid yellow;
   padding: 3rem;
 
-  
-  
   &__header {
     display:  flex;
     justify-content: center;
@@ -38,7 +33,7 @@
 }
 
   @include mobile {
-    width: 90%;
+    width: 100%;
 }
 
   
@@ -49,7 +44,6 @@
   flex-direction: column;
   justify-content: flex-start;
   width: 100%;
-  // border: 1px solid purple;
 
   &__title {
     font-size: large;
@@ -59,8 +53,6 @@
 }
 
 .comment-content {
-  // border: 1px solid orangered;
-  padding: 1rem;
   width: 100%;
 }
 
@@ -95,7 +87,16 @@
 
 
 .comment-author{
-  font-size: 1.5rem;
+  font-size: 1.2rem;
+  text-align: center;
+
+  @include mobile {
+    font-size: 1rem;
+  }
+}
+
+.comment-date{
+  text-align: center;
 }
 
 .comment-posts {
@@ -104,38 +105,32 @@
   width: 100%;
   margin-top: 2.5rem;
   border-radius: 5px;
-  border: 1px solid #545454;
-
-  &:hover{
-    // background-color: #1B1A17;
-    border: 1px solid #ffffff;
-    transition: ease-in-out 0.1s;
-    cursor: pointer;
-  }
-
+  border: 1px solid #333;
 }
 
 .user-info{
-  width: 16.666667%;
-  padding: 1rem;
-  border: 1px solid lime;
+  width: 25%;
+  padding: 2rem;
+
+  @include mobile {
+    width: 100%;
+  }
   
 
   img{
     width: 100%;
     height: auto;
+    width: 50px;
+    border-radius: 50%;
+    overflow: hidden;
   }
 
 }
 
 .image_container{
-  // display: flex;
-  // justify-content: center;
-  // align-items: center;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center; 
 }
 
 .replies{
@@ -147,7 +142,6 @@
   flex-direction: row-reverse;
   width: 100%;
   padding: 1rem;
-  // border: 1px solid olivedrab;
 }
 
 .comment-action{
@@ -168,16 +162,21 @@
 }
 
 .comment-text {
-  width: 100%;
-  // border: 1px solid yellow;
+  min-width: 100%;
+  margin-top: 1rem;
+  padding: 2rem 1rem;
+  align-content: flex-start;
+  border-radius: 5px;
+  border: 1px solid #545454;
+  
+  &:hover{
+    border: 1px solid #ffffff;
+    transition: ease-in-out 0.1s;
+    cursor: pointer;
+  }
+
 }
 
 .comment-right-part {
-  // width: 100%;
-  // display: flex;
-  // flex-direction: column;
-  // justify-content: flex-start;
-  // align-items: flex-start;
-  // border: 1px solid red;
-  padding: 1rem;
+  margin: 0 1rem 1rem 0;
 }
