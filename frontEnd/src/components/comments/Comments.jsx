@@ -4,7 +4,7 @@ import CommentForm from "./CommentForm";
 import Comment from "./Comment";
 import axios from 'axios';
 import {
-  getComments as getCommentsApi,
+  //getComments as getCommentsApi,
   createComment as createCommentApi,
   updateComment as updateCommentApi,
   deleteComment as deleteCommentApi,
@@ -65,7 +65,6 @@ const Comments = ({ commentsUrl, currentUserId }) => {
     axios
       .get("http://localhost:3001/")
       .then((response) => {
-        console.log(response.data);
         setBackendComments(response.data);
       });
   }, []);
