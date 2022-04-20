@@ -12,9 +12,6 @@ import Forums from '../pages/Forums';
 import Signup from '../pages/Signup';
 import Watchlist from '../pages/Watchlist';
 
-
-
-
 const Routes = () => {
     return (
         <Switch>

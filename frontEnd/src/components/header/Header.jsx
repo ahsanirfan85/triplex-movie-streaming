@@ -39,6 +39,10 @@ const Header = () => {
         {
             display: 'TV Series',
             path: '/tv'
+        },
+        {
+            display: 'Watch List',
+            path: '/watchlist'
         }
     ];
 
