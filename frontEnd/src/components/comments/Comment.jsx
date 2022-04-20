@@ -31,7 +31,9 @@ const Comment = ({
   return (
     <div key={comment.id} className="comment-posts">
       <div className="user-info">
-        <img src={ profilepic } alt=''/>
+        <div className="image_container">
+          <img src={ profilepic } alt='' />
+        </div>
         <div className="comment-author">{ comment.username }</div>
         <div>{createdAt}</div>
       </div>

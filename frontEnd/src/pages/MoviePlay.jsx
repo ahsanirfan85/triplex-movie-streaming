@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "../pages/detail/detail.scss"
-import { Player } from "video-react";
+import { Player, BigPlayButton } from "video-react";
 import "video-react/dist/video-react.css";
 import { Link } from "react-router-dom";
 
@@ -26,6 +26,7 @@ class MoviePlay extends Component {
           }}
           playsInline
         >
+          <BigPlayButton position="center" />
           <source
             src={videoSrc}
             type="video/mp4"
