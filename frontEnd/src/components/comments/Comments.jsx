@@ -4,7 +4,7 @@ import CommentForm from "./CommentForm";
 import Comment from "./Comment";
 import axios from 'axios';
 import {
-  //getComments as getCommentsApi,
+  // getComments as getCommentsApi,
   createComment as createCommentApi,
   updateComment as updateCommentApi,
   deleteComment as deleteCommentApi,
@@ -62,10 +62,12 @@ const Comments = ({ commentsUrl, currentUserId }) => {
     // getCommentsApi().then((data) => {
     //   setBackendComments(data);
     // });
+    
     axios
       .get("http://localhost:3001/")
       .then((response) => {
         setBackendComments(response.data);
+        console.log(response.data);
       });
   }, []);
 
@@ -98,3 +100,6 @@ const Comments = ({ commentsUrl, currentUserId }) => {
 };
 
 export default Comments;
+
+
+//create comment fn with the movie id
