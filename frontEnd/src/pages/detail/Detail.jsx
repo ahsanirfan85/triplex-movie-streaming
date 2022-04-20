@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 import { Link } from 'react-router-dom';
 
+import Userfront from '@userfront/core';
+
 import tmdbApi from '../../api/tmdbApi';
 import apiConfig from '../../api/apiConfig';
 
@@ -16,7 +18,6 @@ import RateButton from '../../components/button/RateButton';
 const Detail = () => {
 
     const { category, id } = useParams();
-
     const [item, setItem] = useState(null);
     
     useEffect(() => {
@@ -64,7 +65,7 @@ const Detail = () => {
                                     </div>
                                     <div className='button-link'>
                                         <Link to="/movieplay" className='social__link'>Play Now!</Link>
-                                        <Link to="/forums" className='social__link'>Discussion Forum</Link>
+                                        <Link to={`/forums/${category}/${id}/${Userfront.user.userId}`} className='social__link'>Discussion Forum</Link>
                                     </div>
                                 </div>
                             </div>

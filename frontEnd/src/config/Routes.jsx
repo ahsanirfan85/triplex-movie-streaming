@@ -31,7 +31,7 @@ const Routes = () => {
                 component={Watchlist}
             />
             <Route
-                path='/forums'
+                path='/forums/:category/:id/:userId'
                 exact
                 component={Forums}
             />

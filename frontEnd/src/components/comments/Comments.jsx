@@ -10,7 +10,7 @@ import {
   deleteComment as deleteCommentApi,
 } from "../../api";
 
-const Comments = ({ commentsUrl, currentUserId }) => {
+const Comments = ({ category, id, currentUserId }) => {
 
   const [backendComments, setBackendComments] = useState([]);
   const [activeComment, setActiveComment] = useState(null);
@@ -63,10 +63,13 @@ const Comments = ({ commentsUrl, currentUserId }) => {
     //   setBackendComments(data);
     // });
     axios
-      .get("http://localhost:3001/")
+      .get(`http://localhost:3001/posts/${category}/${id}/${currentUserId}/`)
       .then((response) => {
         console.log(response.data);
         setBackendComments(response.data);
+      })
+      .catch((error) => {
+        console.log(error.message);
       });
   }, []);
 
