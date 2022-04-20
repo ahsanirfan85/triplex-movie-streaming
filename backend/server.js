@@ -2,7 +2,7 @@
 require("dotenv").config();
 
 // Defining the Port
-const PORT = 8000;
+const PORT = 3001;
 
 // Express App Setup
 const express = require("express"); // requiring express
@@ -26,7 +26,7 @@ client.connect(function(err) {
     }
     console.log(result.rows[0].theTime);
     // >> output: 2018-08-23T14:02:57.117Z
-    client.end();
+    //client.end();
   });
 });
 
@@ -35,6 +35,19 @@ const morgan = require("morgan"); // requiring morgan
 app.use(morgan("dev")); // use morgan in this file
 
 /* ROUTES GO BELOW HERE */
+
+app.get("/", (req, res) => {
+  client
+    .query(`SELECT * FROM posts;`)
+    .then((data) => {
+      console.log(data.rows);
+      res.header("Access-Control-Allow-Origin", "*");
+      res.send(data.rows);
+    })
+    .catch((error) => {console.log(error)})
+  
+  
+});
 
 /* ROUTES GO ABOVE HERE */
 
