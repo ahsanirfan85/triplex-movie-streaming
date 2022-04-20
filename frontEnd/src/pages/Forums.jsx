@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router';
+// import { useEffect, useState } from 'react';
+// import { useParams } from 'react-router';
 import Comments from "../components/comments/Comments";
 import PageHeader from '../components/page-header/PageHeader';
 // import apiConfig from '../api/apiConfig';
-import tmdbApi from '../api/tmdbApi';
+// import tmdbApi from '../api/tmdbApi';
 
 const Forums = () => {
 
