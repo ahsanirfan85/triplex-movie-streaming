@@ -50,7 +50,6 @@
   justify-content: flex-start;
   width: 100%;
   // border: 1px solid purple;
-  margin-top: 1rem;
 
   &__title {
     font-size: large;
@@ -59,11 +58,18 @@
 
 }
 
+.comment-content {
+  // border: 1px solid orangered;
+  padding: 1rem;
+  width: 100%;
+}
+
 .comment-form-button{
   padding: .8rem 3rem;
   border: 1px solid $white;
   background-color: transparent;
   color: $white;
+  margin-top: 1.2rem;
 
 
   &:hover {
@@ -93,7 +99,9 @@
 }
 
 .comment-posts {
-  padding: 3rem;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
   margin-top: 2.5rem;
   border-radius: 5px;
   border: 1px solid #545454;
@@ -107,17 +115,32 @@
 
 }
 
-.comment-image-container{
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  overflow: hidden;
-  border: 1px solid white;
-  margin-left: .5rem;
+.user-info{
+  width: 16.666667%;
+  padding: 1rem;
+  // border: 1px solid lime;
+  align-items: center;
+  
+  display: block;
+
+  img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+  }
+
 }
 
 .replies{
-  background-color: #070504;
+  margin: 0;
+}
+
+.comment-actions {
+  display: flex;
+  flex-direction: row-reverse;
+  width: 100%;
+  padding: 1rem;
+  // border: 1px solid olivedrab;
 }
 
 .comment-action{
@@ -125,9 +148,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid white;
+  border: 1px solid #333333;
   width: 100px;
-  margin-top:1rem;
 
   &:hover{
     background-color: $white;
@@ -135,10 +157,20 @@
     transition: ease-in-out 0.1s;
     cursor: pointer;
   }
+
 }
 
-.comment-actions {
+.comment-text {
+  width: 100%;
+  // border: 1px solid yellow;
+}
+
+.comment-right-part {
+  width: 100%;
   display: flex;
-  flex-direction: row;
-  margin-right: 3rem;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  // border: 1px solid red;
+  padding: 1rem;
 }
