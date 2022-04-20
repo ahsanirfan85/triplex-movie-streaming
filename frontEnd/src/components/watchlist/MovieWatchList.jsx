@@ -6,10 +6,8 @@ import tmdbApi from '../../api/tmdbApi';
 import apiConfig from '../../api/apiConfig';
 
 import './moviewatchlist.scss';
-import CastList from '../../pages/detail/CastList';
 
 import Watchlist from '../../components/button/Watchlist';
-import RateButton from '../../components/button/RateButton';
 
 
   const MovieWatchList = (props) => {
@@ -18,7 +16,6 @@ import RateButton from '../../components/button/RateButton';
   
     const [item, setItem] = useState(null);
   
-    console.log(props)
         useEffect(() => {
           const getDetail = async () => {
             const response = await tmdbApi.detail(props.category, props.id, {params:{}});
@@ -41,6 +38,9 @@ import RateButton from '../../components/button/RateButton';
                                 <h1 className="title">
                                     {item.title || item.name}
                                 </h1>
+                                <h2 className="date" placeholder="Date Released: ">
+                                    Date Released: {item.release_date || item.first_air_date}
+                                </h2>
                                 <div className="genres">
                                     {
                                         item.genres && item.genres.slice(0, 5).map((genre, i) => (
@@ -51,17 +51,9 @@ import RateButton from '../../components/button/RateButton';
                                 <p className="overview">{item.overview}</p>
                                 <div className="cast">
                                     <div className="section__header">
-                                        <h2>Casts</h2>
-                                    </div>
-                                    <CastList id={ item.id } />
-                                    <div className='social'>
                                         <Watchlist />
-                                        <RateButton />
                                     </div>
-                                    <div className='button-link'>
-                                        <Link to="/movieplay" className='social__link'>Play Now!</Link>
-                                        <Link to="/forums" className='social__link'>Discussion Forum</Link>
-                                    </div>
+
                                 </div>
                             </div>
                         </div>

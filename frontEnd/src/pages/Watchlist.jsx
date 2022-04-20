@@ -3,7 +3,6 @@ import { useParams } from 'react-router';
 import { Link } from 'react-router-dom';
 
 import Userfront from '@userfront/core';
-import './detail/detail.scss';
 import PageHeader from '../components/page-header/PageHeader';
 import MovieWatchList from '../components/watchlist/MovieWatchList';
 
@@ -21,12 +20,12 @@ const watchlistDB = [
   },
   {
     userid:6,
-    movieid: 104441,
+    movieid: 696806,
     isSelected: true
   },
   {
     userid:6,
-    movieid: 634649,
+    movieid: 414906,
     isSelected: true
   },
   {
@@ -49,7 +48,6 @@ for (let i of watchlistDB) {
 }
 
 const Watchlist = () => {
-console.log("Movies ",movies)
   return (
     <>
         <div className='container'>
@@ -59,8 +57,7 @@ console.log("Movies ",movies)
         {
           movies.map(movie => (
              <MovieWatchList category={"movie"} id={movie} />
-           ) )
-            
+           ) )   
         } 
         
       </div>
