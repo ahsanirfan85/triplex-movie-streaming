@@ -51,7 +51,10 @@ import Watchlist from '../../components/button/Watchlist';
                                 <p className="overview">{item.overview}</p>
                                 <div className="cast">
                                     <div className="section__header">
-                                        <Watchlist />
+                                    <button className="btn-like" onClick= {() => props.removeWatchList(props.id, props.category)}>
+                                        Remove from watchList
+                                        
+                                        </button>
                                     </div>
 
                                 </div>
