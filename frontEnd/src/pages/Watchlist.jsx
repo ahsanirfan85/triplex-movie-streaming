@@ -66,9 +66,9 @@ for (let i of watchlistDB) {
 const Watchlist = () => {
   return (
     <>
+      <PageHeader />
         <div className='container'>
         <div className='section mb-3'>
-          <PageHeader />
         <h1>Watch List</h1>
         {
           movies.map((movie, index) => {
