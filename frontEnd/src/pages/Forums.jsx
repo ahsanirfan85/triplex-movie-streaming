@@ -1,37 +1,37 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-
-import { OutlineButton } from '../components/button/Button';
-import HeroSlide from '../components/hero-slide/HeroSlide';
-import MovieList from '../components/movie-list/MovieList';
-
-import Forum from "../components/Forum"
-
-import { category, movieType } from '../api/tmdbApi';
+// import { useEffect, useState } from 'react';
+// import { useParams } from 'react-router';
+import Comments from "../components/comments/Comments";
+import PageHeader from '../components/page-header/PageHeader';
+// import apiConfig from '../api/apiConfig';
+// import tmdbApi from '../api/tmdbApi';
 
 const Forums = () => {
+
+    // const { category, id } = useParams();
+    // const [item, setItem] = useState(null);
+
+
+    // useEffect(() => {
+    //     const getDetail = async () => {
+    //         const response = await tmdbApi.detail(category, id, {params:{}});
+    //         setItem(response);
+    //         window.scrollTo(0,0);
+    //     }
+    //     getDetail();
+    // }, [category, id]);
+
+
+
     return (
-        <>
-            <HeroSlide/>
-            <div className="container">
-                <div className="section mb-3">
-                    <div className="section__header mb-2">
-                        <h2>Trending Movies</h2>
-                        <Link to="/movie">
-                            <OutlineButton className="small">View more</OutlineButton>
-                        </Link>
-                    </div>
-                    <MovieList category={category.movie} type={movieType.popular}/>
-                </div>
-
-                <div className="section mb-3">
-                    <Forum />
-                </div>
-
-                
+    <>
+            <PageHeader />
+            {/* <div className="banner" style={{backgroundImage: `url(${apiConfig.originalImage(item.backdrop_path || item.poster_path)})`}}></div> */}
+            <div className="comments__header"><h1>Discussion Forum</h1></div>
+            <div className="content-wrapper">
+                <Comments currentUserId="1" />
             </div>
-        </>
-    );
-}
+    </>
+  );
+};
 
-export default Forums
+export default Forums;

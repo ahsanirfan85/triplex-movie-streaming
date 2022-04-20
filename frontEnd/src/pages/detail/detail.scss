@@ -174,8 +174,10 @@
     display: flex;
     align-items: center;
     position: absolute;
-    top: 20px;
-    left: 20px;
+    top: 2rem;
+    left: 2rem;
+    font-weight: bold;
+    font-size: 1.2rem;
     color: rgb(255, 255, 255);
     cursor: pointer;
     z-index: 999;

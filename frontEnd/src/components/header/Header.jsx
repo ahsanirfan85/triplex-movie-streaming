@@ -7,7 +7,7 @@ import Cookies from 'js-cookie'
 import Userfront from '@userfront/core';
 
 const Header = () => {
-    console.log(Userfront.user.name);
+    // console.log(Userfront.user.name);
     const loggedOut = [
         {
             display: 'Home',
@@ -45,7 +45,7 @@ const Header = () => {
             path: '/watchlist'
         }
     ];
-
+    
     const [headerNav, setHeaderNav] = useState(loggedOut);
     const [isLoggedIn, setIsLoggedIn] = useState(false);
 
