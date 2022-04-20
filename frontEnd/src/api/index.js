@@ -11,10 +11,10 @@ export const getComments = async () => {
     {
       id: "2",
       body: "A strong first episode setting the scene of a multiple personality protagonist. The reflection metaphors work well (mirrors, puddles, scales ...) even if they are pasted on so thickly. So too the missing time around the girl, the goldfish and most impactfully the fighting. The use of implied violence is compelling especially in the car chase where there is already explosive action - this also informs us of the character of the alter ego.",
-      username: "Vincent",
+      username: "davincecode",
       userId: "2",
       parentId: null,
-      createdAt: "2021-08-16T23:00:33.010+02:00",
+      createdAt: "2021-08-18T23:00:33.010+02:00",
     },
     {
       id: "3",
@@ -30,7 +30,7 @@ export const getComments = async () => {
       username: "Andy",
       userId: "2",
       parentId: "2",
-      createdAt: "2021-08-16T23:00:33.010+02:00",
+      createdAt: "2021-08-21T23:00:33.010+02:00",
     },
   ]
 }
@@ -41,7 +41,7 @@ export const createComment = async (text, parentId = null) => {
     body: text,
     parentId,
     userId: "1",
-    username: "Vincent",
+    username: "davincecode",
     createdAt: new Date().toISOString(),
   }
 }
