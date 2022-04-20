@@ -40,7 +40,6 @@ app.get("/", (req, res) => {
   client
     .query(`SELECT * FROM posts;`)
     .then((data) => {
-      console.log(data.rows);
       res.header("Access-Control-Allow-Origin", "*");
       res.send(data.rows);
     })
