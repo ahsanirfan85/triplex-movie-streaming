@@ -51,6 +51,48 @@ const watchlistDB = [
     movieid: 104441,
     type: 'movie',
     isSelected: true
+  },
+  {
+    userid:6,
+    movieid: 634649,
+    type: 'movie',
+    isSelected: true
+  },
+  {
+    userid:6,
+    movieid:52814,
+    type: 'tv',
+    isSelected: true
+  },
+  {
+    userid:6,
+    movieid: 573164,
+    type: 'movie',
+    isSelected: true
+  },
+  {
+    userid:6,
+    movieid: 453395,
+    type: 'movie',
+    isSelected: true
+  },
+  {
+    userid:6,
+    movieid: 94605,
+    type: 'tv',
+    isSelected:true
+  },
+  {
+    userid:6,
+    movieid: 629542,
+    type: 'movie',
+    isSelected: true
+  },
+  {
+    userid:6,
+    movieid: 338953,
+    type: 'movie',
+    isSelected: true
   }
 ]
 const userId = Userfront.user.userId;
