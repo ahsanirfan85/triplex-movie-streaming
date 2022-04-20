@@ -36,9 +36,12 @@ app.use(morgan("dev")) // use morgan in this file
 
 /* ROUTES GO BELOW HERE */
 
-app.get("/", (req, res) => {
+app.get("/posts/:type/:id/", (req, res) => {
   client
-    .query(`SELECT * FROM posts;`)
+    .query("SELECT * FROM posts WHERE movie_id=$1 AND type=$2;", [
+      req.params.id,
+      req.params.type,
+    ])
     .then((data) => {
       console.log(data.rows)
       res.header("Access-Control-Allow-Origin", "*")
