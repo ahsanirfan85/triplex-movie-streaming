@@ -7,7 +7,6 @@ import Cookies from 'js-cookie'
 import Userfront from '@userfront/core';
 
 const Header = () => {
-    // console.log(Userfront.user.name);
     const loggedOut = [
         {
             display: 'Home',
