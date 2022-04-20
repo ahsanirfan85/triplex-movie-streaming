@@ -9,7 +9,7 @@ const Comment = ({
   updateComment,
   deleteComment,
   addComment,
-  parentId = null,
+  parent_id = null,
   currentUserId,
 }) => {
   const isEditing =
@@ -23,19 +23,20 @@ const Comment = ({
   const fiveMinutes = 300000;
   const timePassed = new Date() - new Date(comment.createdAt) > fiveMinutes;
   const canDelete =
-    currentUserId === comment.userId && replies.length === 0 && !timePassed;
+    currentUserId === comment.user_id && replies.length === 0 && !timePassed;
     const canReply = Boolean(currentUserId);
-    const canEdit = currentUserId === comment.userId && !timePassed;
-  const replyId = parentId ? parentId : comment.id;
+    const canEdit = currentUserId === comment.user_id && !timePassed;
+  const replyId = parent_id ? parent_id : comment.id;
   const createdAt = new Date(comment.createdAt).toLocaleDateString();
-  console.log(comment.username);
+  // console.log(currentUserId);
+  
   return (
     <div key={comment.id} className="comment-posts">
       <div className="user-info">
         <div className="image_container">
           <img src={ profilepic } alt='' />
         </div>
-        <div className="comment-author">{ comment.username }</div>
+        <div className="comment-author">{ comment.user_id }</div>
         <div className='comment-date'>{createdAt}</div>
       </div>
       <div className="comment-right-part">
@@ -100,7 +101,7 @@ const Comment = ({
                 updateComment={updateComment}
                 deleteComment={deleteComment}
                 addComment={addComment}
-                parentId={comment.id}
+                parent_id={comment.id}
                 replies={[]}
                 currentUserId={currentUserId}
               />
