@@ -31,15 +31,15 @@ import Watchlist from '../../components/button/Watchlist';
                 item && (
                     <>
                         <div className="mb-3 movie-content2 container">
-                            <div className="movie-content__poster">
-                                <div className="movie-content__poster__img" style={{backgroundImage: `url(${apiConfig.originalImage(item.poster_path || item.backdrop_path)})`}}></div>
+                            <div className="movie-content2__poster">
+                                <div className="movie-content2__poster__img" style={{backgroundImage: `url(${apiConfig.originalImage(item.poster_path || item.backdrop_path)})`}}></div>
                             </div>
-                            <div className="movie-content__info">
+                            <div className="movie-content2__info">
                                 <h1 className="title">
                                     {item.title || item.name}
                                 </h1>
                                 <h2 className="date" placeholder="Date Released: ">
-                                    Date Released: {item.release_date || item.first_air_date}
+                                    Release Date: {item.release_date || item.first_air_date}
                                 </h2>
                                 <div className="genres">
                                     {

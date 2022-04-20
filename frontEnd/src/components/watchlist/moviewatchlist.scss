@@ -1,21 +1,20 @@
 @use "../../scss/" as *;
 
-
 .movie-content2 {
     @include flex(flex-start, flex-start);
-    max-width: 900px;
+    max-width: 1260px;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 0rem;
+    margin-top: 2rem;
     position: relative;
     padding: 0 2rem;
 
     &__poster {
-        flex: 1;
+        flex: 0.7;
 
 
         @include mobile {
-            display: none;
+            display:none;
         }
 
         &__img {
@@ -23,8 +22,8 @@
             background-size: cover;
             background-repeat: no-repeat;
             border-radius: $border-radius;
-            padding-top: 100%;
-            margin-top: 1.5rem;
+            padding-top: 130%;
+            margin-top: 0rem;
         }
     }
 

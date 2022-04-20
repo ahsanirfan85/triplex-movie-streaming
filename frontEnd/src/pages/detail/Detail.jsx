@@ -43,7 +43,7 @@ const Detail = () => {
                                     {item.title || item.name} 
                                 </h1>
                                 <h2 className="date" placeholder="Date Released: ">
-                                    Date Released: {item.release_date || item.first_air_date}
+                                    Release Date: {item.release_date || item.first_air_date}
                                 </h2>
                                 <div className="genres">
                                     {
