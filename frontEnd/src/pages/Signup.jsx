@@ -6,9 +6,9 @@ const Signup = () => {
 
     return (
       <>
+        <PageHeader />
         <div className='container'>
           <div className='section mb-3'>
-            <PageHeader />
             
             <SignupForm />
           </div>

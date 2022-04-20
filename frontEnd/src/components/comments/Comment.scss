@@ -87,7 +87,7 @@
 
 
 .comment-author{
-  font-size: 1.2rem;
+  font-size: 1rem;
   text-align: center;
 
   @include mobile {
@@ -109,8 +109,8 @@
 }
 
 .user-info{
-  width: 25%;
-  padding: 2rem;
+  width: 16.666667%;
+  padding: 1.2rem;
 
   @include mobile {
     width: 100%;
@@ -178,5 +178,6 @@
 }
 
 .comment-right-part {
+  width: 83.333333%;
   margin: 0 1rem 1rem 0;
 }

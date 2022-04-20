@@ -7,9 +7,9 @@ const Login = () => {
 
     return (
       <>
+        <PageHeader />
         <div className='container'>
           <div className='section mb-3'>
-            <PageHeader />
             <LoginForm />
           </div>
         </div>

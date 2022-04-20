@@ -1,10 +1,12 @@
+import Userfront from "@userfront/core"
+
 export const getComments = async () => {
   return [
     {
       id: "1",
       body: "What an amazing first episode. The camera work was delightful the way it made me felt as confused as him was amazing. Plus the dialogue between himself sold it.",
       username: "Mustafa",
-      userId: "1",
+      userId: "2",
       parentId: null,
       createdAt: "2021-08-16T23:00:33.010+02:00",
     },
@@ -12,7 +14,7 @@ export const getComments = async () => {
       id: "2",
       body: "A strong first episode setting the scene of a multiple personality protagonist. The reflection metaphors work well (mirrors, puddles, scales ...) even if they are pasted on so thickly. So too the missing time around the girl, the goldfish and most impactfully the fighting. The use of implied violence is compelling especially in the car chase where there is already explosive action - this also informs us of the character of the alter ego.",
       username: "davincecode",
-      userId: "2",
+      userId: "1",
       parentId: null,
       createdAt: "2021-08-18T23:00:33.010+02:00",
     },
@@ -40,8 +42,8 @@ export const createComment = async (text, parentId = null) => {
     id: Math.random().toString(36).substr(2, 9),
     body: text,
     parentId,
-    userId: "1",
-    username: "davincecode",
+    userId: Userfront.user.userId,
+    username: Userfront.user.name,
     createdAt: new Date().toISOString(),
   }
 }
