@@ -93,7 +93,25 @@ const watchlistDB = [
     movieid: 338953,
     type: 'movie',
     isSelected: true
-  }
+  },
+  {
+    userid:12,
+    movieid: 634649,
+    type: 'movie',
+    isSelected: true
+  },
+  {
+    userid:12,
+    movieid: 508947,
+    type: 'movie',
+    isSelected: true
+  },
+  {
+    userid:12,
+    movieid: 696806,
+    type: 'movie',
+    isSelected: true
+  },
 ]
 
 
