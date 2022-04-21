@@ -23,8 +23,8 @@ const Comment = ({
     activeComment &&
     activeComment.id === comment.id &&
     activeComment.type === "replying";
-  const fiveMinutes = 300000;
-  const timePassed = new Date() - new Date(comment.created_at) > fiveMinutes;
+  // const fiveMinutes = 300000;
+  // const timePassed = new Date() - new Date(comment.created_at) > fiveMinutes;
   const canReply = Boolean(currentUserId);
   const replyId = parent_id ? parent_id : comment.id;
   const createdAt = new Date(comment.created_at).toLocaleDateString();
