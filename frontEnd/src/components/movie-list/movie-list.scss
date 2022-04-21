@@ -2,6 +2,7 @@
 
 .movie-list {
 
+    // margin-top: 13rem;
 
     .swiper-slide {
         width: 13%;
@@ -13,7 +14,7 @@
 
         &:hover { 
             transition: ease-in 0.1s;
-            transform: scale(1.1);
+            transform: scale(1);
         }
     
 
