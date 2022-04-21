@@ -36,16 +36,25 @@ app.use(morgan("dev")); // use morgan in this file
 
 /* ROUTES GO BELOW HERE */
 
-app.get("/", (req, res) => {
+app.get("/posts/:type/:id/", (req, res) => {
   client
-    .query(`SELECT * FROM posts;`)
+    .query('SELECT * FROM posts WHERE movie_id=$1 AND type=$2;',[req.params.id, req.params.type])
     .then((data) => {
       res.header("Access-Control-Allow-Origin", "*");
       res.send(data.rows);
     })
-    .catch((error) => {console.log(error)})
-  
-  
+    .catch((error) => {console.log(error)});
+});
+
+app.get("/watchlist/:userId", (req, res) => {
+  client
+    .query('SELECT * FROM watchlist WHERE user_id=$1',[req.params.userId])
+    .then((data) => {
+      res.header("Access-Control-Allow-Origin", "*");
+      res.send(data.rows);
+    })
+    .error((error) => {console.log(error)});
+
 });
 
 /* ROUTES GO ABOVE HERE */
