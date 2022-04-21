@@ -3,8 +3,6 @@ import { useParams } from 'react-router';
 import { Link } from 'react-router-dom';
 import Userfront from '@userfront/core';
 
-import Userfront from '@userfront/core';
-
 import tmdbApi from '../../api/tmdbApi';
 import apiConfig from '../../api/apiConfig';
 
