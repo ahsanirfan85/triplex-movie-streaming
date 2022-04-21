@@ -20,7 +20,8 @@ const CommentForm = ({
       <textarea
         className="comment-form-textarea"
         value={text}
-        onChange={(e) => setText(e.target.value)}
+        onChange={ (e) => setText(e.target.value) }
+        placeholder="Write a comment..."
       />
       <button className="comment-form-button" disabled={isTextareaDisabled}>
         {submitLabel}

@@ -79,8 +79,7 @@ const Comments = ({ category, id, currentUserId }) => {
     <>
       <div className="comments">
         <div className='comments-post'>
-          <h3 className="comments-post__title">Write something</h3>
-            <CommentForm submitLabel="Post" handleSubmit={ addComment } />
+            <CommentForm submitLabel="Create Post" handleSubmit={ addComment } />
         </div>
         
         <div className="comments-container">
