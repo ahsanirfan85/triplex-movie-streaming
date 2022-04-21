@@ -36,13 +36,10 @@ const Comment = ({
     <div key={comment.id} className="comment-posts">
       <div className="user-info">
         <div className="image_container">
-          {/* <img src={ profilepic } alt='' /> */}
-          {/* <img src={ Userfront.user.image } alt='' /> */}
           { (comment.user_id === Userfront.user.name) ?
             <img src={ Userfront.user.image } alt='' /> : <img src={ profilepic } alt='' /> }
         </div>
         <div className="comment-author">{ comment.user_id }</div>
-        {/* <div className='comment-date'>{createdAt}</div> */}
       </div>
       <div className="comment-right-part">
         <div className="comment-content">
