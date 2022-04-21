@@ -21,10 +21,10 @@ const Comments = ({ category, id, currentUserId }) => {
   );
   const getReplies = (commentId) =>
     backendComments
-    .filter((backendComment) => backendComment.parent_id === commentId)
-    .sort(
-      (a, b) =>
-      new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime()
+      .filter((backendComment) => backendComment.parent_id === commentId)
+      .sort(
+        (a, b) =>
+          new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime()
       );
 
   const addComment = (text, parent_id) => {
@@ -83,21 +83,21 @@ const Comments = ({ category, id, currentUserId }) => {
             <CommentForm submitLabel="Post" handleSubmit={ addComment } />
         </div>
         
-      <div className="comments-container">
-        {rootComments.map((rootComment) => (
-          <Comment
-            key={rootComment.id}
-            comment={rootComment}
-            replies={getReplies(rootComment.id)}
-            activeComment={activeComment}
-            setActiveComment={setActiveComment}
-            addComment={addComment}
-            deleteComment={deleteComment}
-            updateComment={updateComment}
-            currentUserId={currentUserId}
-          />
-        ))}
-      </div>
+        <div className="comments-container">
+          {rootComments.map((rootComment) => (
+            <Comment
+              key={rootComment.id}
+              comment={rootComment}
+              replies={getReplies(rootComment.id)}
+              activeComment={activeComment}
+              setActiveComment={setActiveComment}
+              addComment={addComment}
+              deleteComment={deleteComment}
+              updateComment={updateComment}
+              currentUserId={currentUserId}
+            />
+          ))}
+        </div>
       </div>
     </>
   );
