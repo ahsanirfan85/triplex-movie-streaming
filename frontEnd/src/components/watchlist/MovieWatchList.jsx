@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router';
-import { Link } from 'react-router-dom';
+// import { useParams } from 'react-router';
+// import { Link } from 'react-router-dom';
 
 import tmdbApi from '../../api/tmdbApi';
 import apiConfig from '../../api/apiConfig';
 
 import './moviewatchlist.scss';
 
-import Watchlist from '../../components/button/Watchlist';
+// import Watchlist from '../../components/button/Watchlist';
 
 
   const MovieWatchList = (props) => {

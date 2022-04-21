@@ -119,7 +119,7 @@ const watchlistDB = [
 const Watchlist = () => {
   const [ movies, setMovies ] = useState([]);
   const [ category, setCategory ] = useState([]);
-  //const [ watchlistDB, setWatchlistDB ] = useState([]);
+//  const [ watchlistDB, setWatchlistDB ] = useState([]);
 
   const removeWatchList = (movieId, type) => {
     console.log("movie ID", movieId)
@@ -145,19 +145,19 @@ const Watchlist = () => {
     //use setState (setMovie)
   }
 
-  useEffect( () => {
-    const userId = Userfront.user.userId;
-    let moviesList = [];
-    let categoryList = [];
-    for (let i of watchlistDB) {
-      if (i.userid === userId && i.isSelected) {
-        moviesList.push(i.movieid);
-        categoryList.push(i.type);
-      }
-    }
-    setMovies(moviesList);
-    setCategory(categoryList);
-  },[])
+  // useEffect( () => {
+  //   const userId = Userfront.user.userId;
+  //   let moviesList = [];
+  //   let categoryList = [];
+  //   for (let i of watchlistDB) {
+  //     if (i.userid === userId && i.isSelected) {
+  //       moviesList.push(i.movieid);
+  //       categoryList.push(i.type);
+  //     }
+  //   }
+  //   setMovies(moviesList);
+  //   setCategory(categoryList);
+  // },[])
 
   return (
     <>
@@ -166,9 +166,10 @@ const Watchlist = () => {
         <div className='section mb-3'>
         <h1>Watch List</h1>
         {
-          movies.map((movie, index) => {
-            let cate = category[index];
-             return <MovieWatchList removeWatchList = {removeWatchList} category={cate} id={movie} />
+          watchlistDB.map((movie, index) => {
+            if (movie.userid === Userfront.user.userId && movie.isSelected) {
+              return <MovieWatchList removeWatchList = {removeWatchList} category={movie.type} id={movie.movieid} />              
+            }
           } )   
         } 
         
