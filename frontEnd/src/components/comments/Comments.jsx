@@ -19,7 +19,6 @@ const Comments = ({ category, id, currentUserId }) => {
   const rootComments = backendComments.filter(
     (backendComment) => backendComment.parent_id === null
   );
-  
   const getReplies = (commentId) =>
     backendComments
     .filter((backendComment) => backendComment.parent_id === commentId)
