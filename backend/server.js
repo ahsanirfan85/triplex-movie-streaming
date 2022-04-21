@@ -38,18 +38,29 @@ app.use(morgan("dev")) // use morgan in this file
 
 app.get("/posts/:type/:id/", (req, res) => {
   client
-    .query("SELECT * FROM posts WHERE movie_id=$1 AND type=$2;", [
-      req.params.id,
-      req.params.type,
-    ])
-    .then((data) => {
-      console.log(data.rows)
-      res.header("Access-Control-Allow-Origin", "*")
-      res.send(data.rows)
+    .query(
+      `SELECT * FROM posts WHERE type = '${req.params.type}' AND id = '${req.params.id}'`
+    )
+    .then((result) => {
+      res.send(result.rows)
     })
-    .catch((error) => {
-      console.log(error)
+    .catch((err) => {
+      console.error(err)
     })
+
+  // .query("SELECT * FROM posts WHERE movie_id=$1 AND type=$2;", [
+  //   req.params.id,
+  //   req.params.type,
+  // ])
+  // .then((data) => {
+  //   console.log(data.rows)
+  //   res.header("Access-Control-Allow-Origin", "*")
+  //   res.send(data.rows)
+  //   console.log(data, req.params)
+  // })
+  // .catch((error) => {
+  //   console.log(error)
+  // })
 })
 
 /* ROUTES GO ABOVE HERE */

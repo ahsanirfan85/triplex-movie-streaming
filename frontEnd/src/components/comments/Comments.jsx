@@ -66,10 +66,10 @@ const Comments = ({ category, id, currentUserId }) => {
     // });
     
     axios
-      // .get(`http://localhost:3001/posts/${category}/${id}`)
-      .get("http://localhost:3001/")
+      .get(`http://localhost:3001/posts/${category}/${id}`)
       .then((response) => {
         console.log(response.data);
+        // console.log(response.data.comments);
         setBackendComments(response.data);
       })
       .catch((error) => {
