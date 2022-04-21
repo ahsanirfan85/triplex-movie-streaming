@@ -10,6 +10,10 @@ const app = express() // what does this do?
 app.use(express.urlencoded({ extended: true })) // what does this do?
 // app.use(express.static("public")); // serves up the static files to the front end
 
+// CORS package
+const cors = require('cors')
+app.use(cors());
+
 // PG database client/connection setup
 const pg = require("pg") // requiring postgresql
 const dbParams = process.env.DB_URL
@@ -51,7 +55,7 @@ app.get("/posts/:type/:id/", (req, res) => {
     .catch((error) => {
       console.log(error)
     })
-})
+});
 
 app.get("/watchlist/:userId", (req, res) => {
   client
@@ -61,9 +65,24 @@ app.get("/watchlist/:userId", (req, res) => {
       res.send(data.rows)
     })
     .catch((error) => {
-      console.log(error)
+      console.log(error);
     })
-})
+});
+
+app.put("/watchlist/remove/:type/:user_id/:id", (req, res) => {
+  console.log(req.params.type);
+  console.log(req.params.user_id);
+  console.log(req.params.id);
+  client
+    .query("UPDATE watchlist SET is_selected=false WHERE type=$1 AND user_id=$2 AND movie_id=$3", [req.params.type, req.params.user_id, req.params.id])
+    .then((data) => {
+      res.header("Access-Control-Allow-Origin", "*");
+      res.send(data.rows);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+});
 
 /* ROUTES GO ABOVE HERE */
 

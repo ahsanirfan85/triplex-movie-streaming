@@ -14,6 +14,14 @@ const Watchlist = () => {
   const removeWatchList = (movieId, type) => {
     console.log("movie ID", movieId)
     console.log("Category", type)
+    axios
+      .put(`http://localhost:3001/watchlist/remove/${type}/${Userfront.user.userId}/${movieId}`)
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
     let moviesList = [];
     for(let i of watchlistDB) {
       if (i.movie_id === movieId && i.type === type) {
