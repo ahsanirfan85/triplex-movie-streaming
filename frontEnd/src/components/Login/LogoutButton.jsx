@@ -47,7 +47,9 @@ class LogoutButton extends React.Component {
         onClick={this.handleClick}
         disabled={this.state.disabled}
       >
+        <a>
         Log out
+        </a>
       </li>
     );
   }
