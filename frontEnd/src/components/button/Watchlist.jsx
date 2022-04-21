@@ -3,6 +3,23 @@ import watchlistDB from '../../data/db';
 
 const WatchListButton = (props) => {
   const [label, setLabel] = useState("Add to Watch List");
+  // useEffect(()=> {
+  //   let movie = watchlistDB.find(
+  //     (movie) =>
+  //       movie.movieid === Number(props.movieId) &&
+  //       movie.type === props.type &&
+  //       movie.userid === props.userId
+  //   )
+  //   if (movie) {
+  //     if (movie.isSelected) {
+  //       movie.isSelected = false
+  //       setLabel("Remove from Watch List")
+  //     } else {
+  //       movie.isSelected = true
+  //       setLabel("Add to Watch List")
+  //     }
+  //   }
+  // },[])
 
 const addWatchList = (movieId, type, userId) => {
   setLabel("Remove From Watch List");
@@ -15,8 +32,10 @@ const addWatchList = (movieId, type, userId) => {
   if (movie) {
     if (movie.isSelected) {
       movie.isSelected = false
+      setLabel("Remove from Watch List")
     } else {
       movie.isSelected = true
+      setLabel("Add to Watch List")
     }
   } else {
     watchlistDB.unshift({
