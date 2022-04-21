@@ -1,5 +1,7 @@
 import CommentForm from "./CommentForm";
 import profilepic from "../../assets/user-icon.png"
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 const Comment = ({
   comment,
@@ -21,20 +23,46 @@ const Comment = ({
     activeComment.id === comment.id &&
     activeComment.type === "replying";
   const fiveMinutes = 300000;
-  const timePassed = new Date() - new Date(comment.createdAt) > fiveMinutes;
-  const canDelete =
-    currentUserId === comment.userId && replies.length === 0 && !timePassed;
+  const timePassed = new Date() - new Date(comment.created_at) > fiveMinutes;
   const canReply = Boolean(currentUserId);
-  const canEdit = currentUserId === comment.userId && !timePassed;
   const replyId = parentId ? parentId : comment.id;
-  const createdAt = new Date(comment.createdAt).toLocaleDateString();
+  const createdAt = new Date(comment.created_at).toLocaleDateString();
+  const [commenterName, setCommenterName] = useState('');
+
+  const [canDelete, setCanDelete] = useState(false);
+    //currentUserId === comment.user_id && replies.length === 0 && !timePassed;
+  const [canEdit, setCanEdit] = useState(false)//currentUserId === comment.user_id && !timePassed;
+
+  console.log(`${currentUserId} ${comment.user_id} ${currentUserId === comment.user_id}`);
+  
+  useEffect(() => {
+    axios({
+      method: 'get',
+      url: `https://api.userfront.com/v0/users/${comment.user_id}`,
+      headers: {
+        authorization: 'Bearer uf_test_admin_9ny8z7vb_dc8b743dbd8a09e5bc7289e758bb4f5d'
+      }
+    })
+      .then((response) => {
+        console.log(response.data.name);
+        setCommenterName(response.data.name);
+        if (currentUserId === comment.user_id) {
+          setCanDelete(true);
+          setCanEdit(true);
+        }
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
+  }, []);
+
   return (
     <div key={comment.id} className="comment-posts">
       <div className="user-info">
         <div className="image_container">
           <img src={ profilepic } alt='' />
         </div>
-        <div className="comment-author">{ comment.username }</div>
+        <div className="comment-author">{ commenterName }</div>
         <div className='comment-date'>{createdAt}</div>
       </div>
       <div className="comment-right-part">
