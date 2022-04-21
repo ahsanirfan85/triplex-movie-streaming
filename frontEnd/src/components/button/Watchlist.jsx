@@ -55,9 +55,4 @@ const addWatchList = (movieId, type, userId) => {
         </>
   )}
 
-<<<<<<< HEAD
-export default Watchlist;
-
-=======
 export default WatchListButton;
->>>>>>> f3506d8cba3074372d604444ad1f1164981f4e8b

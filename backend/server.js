@@ -48,26 +48,22 @@ app.get("/posts/:type/:id/", (req, res) => {
       res.send(data.rows)
       console.log(data, req.params)
     })
-<<<<<<< HEAD
     .catch((error) => {
       console.log(error)
     })
 })
-=======
-    .catch((error) => {console.log(error)});
-});
 
 app.get("/watchlist/:userId", (req, res) => {
   client
-    .query('SELECT * FROM watchlist WHERE user_id=$1',[req.params.userId])
+    .query("SELECT * FROM watchlist WHERE user_id=$1", [req.params.userId])
     .then((data) => {
-      res.header("Access-Control-Allow-Origin", "*");
-      res.send(data.rows);
+      res.header("Access-Control-Allow-Origin", "*")
+      res.send(data.rows)
     })
-    .error((error) => {console.log(error)});
-
-});
->>>>>>> f3506d8cba3074372d604444ad1f1164981f4e8b
+    .error((error) => {
+      console.log(error)
+    })
+})
 
 /* ROUTES GO ABOVE HERE */
 
