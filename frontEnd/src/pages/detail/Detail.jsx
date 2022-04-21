@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 import { Link } from 'react-router-dom';
-
 import Userfront from '@userfront/core';
 
 import tmdbApi from '../../api/tmdbApi';
@@ -12,10 +11,10 @@ import CastList from './CastList';
 import VideoList from './VideoList';
 
 import MovieList from '../../components/movie-list/MovieList';
-import Watchlist from '../../components/button/Watchlist';
+import WatchList from '../../components/button/Watchlist';
 import RateButton from '../../components/button/RateButton';
 
-const Detail = () => {
+const Detail = (props) => {
 
     const { category, id } = useParams();
     const [item, setItem] = useState(null);
@@ -60,7 +59,8 @@ const Detail = () => {
                                     </div>
                                     <CastList id={ item.id } />
                                     <div className='social'>
-                                        <Watchlist />
+                                        <WatchList userId={Userfront.user.userId} type = {category} movieId = {id} />
+
                                         <RateButton />
                                     </div>
                                     <div className='button-link'>
