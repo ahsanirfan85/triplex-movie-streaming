@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router';
-import { Link } from 'react-router-dom';
+// import { useParams } from 'react-router';
+// import { Link } from 'react-router-dom';
 
 import Userfront from '@userfront/core';
 import PageHeader from '../components/page-header/PageHeader';
@@ -162,7 +162,7 @@ const Watchlist = () => {
       <PageHeader />
         <div className='container'>
         <div className='section mb-3'>
-        <h1>Watch List</h1>
+        <h1 className='center-title'>My Watchlist</h1>
         {
           movies.map((movie, index) => {
             let cate = category[index];
