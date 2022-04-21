@@ -8,30 +8,14 @@
     padding: 150% 0 0 0;
     border-radius: $border-radius;
     margin-bottom: 1rem;
-    
+    transform: scale(1);
+    transition: ease-out 1s;
 
-    &::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        bottom: 0;
-        right: 0;
-        opacity: 0;
-        transition: ease-out 1s;
-        transform: scale(1);
+
+    &:hover {
+        cursor: pointer;
+        transform: scale(1.08);
+        transition: ease-in 0.1s;
     }
-
-      @media (hover: hover) and (pointer: fine) {
-        &:hover::before {
-            opacity: 0.8;
-        }
-
-        &:hover .btn {
-            transform: translate(-50%, -50%) scale(1);
-        }
-    }
-
-
 
 }
