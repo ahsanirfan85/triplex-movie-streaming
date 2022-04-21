@@ -14,6 +14,7 @@ const CommentForm = ({
     handleSubmit(text);
     setText("");
   };
+
   return (
     <form onSubmit={onSubmit}>
       <textarea

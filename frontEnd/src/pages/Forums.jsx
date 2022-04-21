@@ -4,6 +4,7 @@ import Comments from "../components/comments/Comments";
 import PageHeader from '../components/page-header/PageHeader';
 // import apiConfig from '../api/apiConfig';
 // import tmdbApi from '../api/tmdbApi';
+import Userfront from "@userfront/core"
 
 const Forums = () => {
 
@@ -21,15 +22,18 @@ const Forums = () => {
     // }, [category, id]);
 
 
-
     return (
     <>
-            <PageHeader />
-            {/* <div className="banner" style={{backgroundImage: `url(${apiConfig.originalImage(item.backdrop_path || item.poster_path)})`}}></div> */}
-            <div className="comments__header"><h1>Discussion Forum</h1></div>
-            <div className="content-wrapper">
-                <Comments category={category} id={id} />
-            </div>
+      <PageHeader />
+      <div className="comments__header">
+          <h1>Discussion Forum</h1>
+        </div>
+        <div className="content-wrapper">
+          <Comments
+            currentUserId={ Userfront.user.name }
+            category={ category }
+            id={ id } />
+      </div>
     </>
   );
 };

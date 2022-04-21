@@ -40,11 +40,8 @@ import Userfront from "@userfront/core"
 export const createComment = async (text, parent_id = null) => {
   return {
     id: Math.random().toString(36).substr(2, 9),
-    // id: Userfront.user.userId,
     body: text,
     parent_id,
-    // userId: Userfront.user.userId,
-
     user_id: Userfront.user.name,
     createdAt: new Date().toISOString(),
   }
