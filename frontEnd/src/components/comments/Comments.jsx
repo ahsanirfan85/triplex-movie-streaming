@@ -69,13 +69,12 @@ const Comments = ({ category, id, currentUserId }) => {
       .get(`http://localhost:3001/posts/${category}/${id}`)
       .then((response) => {
         console.log(response.data);
-        // console.log(response.data.comments);
         setBackendComments(response.data);
       })
       .catch((error) => {
         console.log(error.message);
       });
-  }, []);
+  }, [ id, category ]);
 
   return (
     <>

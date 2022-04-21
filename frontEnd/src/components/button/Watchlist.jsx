@@ -31,3 +31,4 @@ class Watchlist extends Component {
 }
 
 export default Watchlist;
+

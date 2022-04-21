@@ -16,7 +16,7 @@ class MoviePlay extends Component {
     return (
       <div className="movie-play">
           <div className="movie-back">
-          <Link to="/"><span><i class="fa-solid fa-arrow-left" />&nbsp;&nbsp; Back</span></Link>
+          <Link to="/"><span><i className="fa-solid fa-arrow-left" />&nbsp;&nbsp; Back</span></Link>
           </div>
         
         <Player
