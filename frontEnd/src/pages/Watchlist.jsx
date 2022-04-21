@@ -10,154 +10,145 @@ import '../components/watchlist/moviewatchlist.scss';
 // import { category } from '../api/tmdbApi';
 
 //import Watchlist from '../../components/button/Watchlist';
-const watchlistDB = [
-  {
-    userid:15,
-    movieid: 634649,
-    type: 'movie',
-    isSelected: true
-  },
-  {
-    userid:15,
-    movieid: 508947,
-    type: 'movie',
-    isSelected: true
-  },
-  {
-    userid:15,
-    movieid: 696806,
-    type: 'movie',
-    isSelected: true
-  },
-  {
-    userid:15,
-    movieid: 414906,
-    type: 'movie',
-    isSelected: true
-  },
-  {
-    userid:15,
-    movieid: 94605,
-    type: 'tv',
-    isSelected:true
-  },
-  {
-    userid:15,
-    movieid: 104441,
-    type: 'movie',
-    isSelected: true
-  },
-  {
-    userid:7,
-    movieid: 104441,
-    type: 'movie',
-    isSelected: true
-  },
-  {
-    userid:6,
-    movieid: 634649,
-    type: 'movie',
-    isSelected: true
-  },
-  {
-    userid:6,
-    movieid:52814,
-    type: 'tv',
-    isSelected: true
-  },
-  {
-    userid:6,
-    movieid: 573164,
-    type: 'movie',
-    isSelected: true
-  },
-  {
-    userid:6,
-    movieid: 453395,
-    type: 'movie',
-    isSelected: true
-  },
-  {
-    userid:6,
-    movieid: 94605,
-    type: 'tv',
-    isSelected:true
-  },
-  {
-    userid:6,
-    movieid: 629542,
-    type: 'movie',
-    isSelected: true
-  },
-  {
-    userid:6,
-    movieid: 338953,
-    type: 'movie',
-    isSelected: true
-  },
-  {
-    userid:12,
-    movieid: 634649,
-    type: 'movie',
-    isSelected: true
-  },
-  {
-    userid:12,
-    movieid: 508947,
-    type: 'movie',
-    isSelected: true
-  },
-  {
-    userid:12,
-    movieid: 696806,
-    type: 'movie',
-    isSelected: true
-  },
-]
+// const watchlistDB = [
+//   {
+//     userid:15,
+//     movieid: 634649,
+//     type: 'movie',
+//     isSelected: true
+//   },
+//   {
+//     userid:15,
+//     movieid: 508947,
+//     type: 'movie',
+//     isSelected: true
+//   },
+//   {
+//     userid:15,
+//     movieid: 696806,
+//     type: 'movie',
+//     isSelected: true
+//   },
+//   {
+//     userid:15,
+//     movieid: 414906,
+//     type: 'movie',
+//     isSelected: true
+//   },
+//   {
+//     userid:15,
+//     movieid: 94605,
+//     type: 'tv',
+//     isSelected:true
+//   },
+//   {
+//     userid:15,
+//     movieid: 104441,
+//     type: 'movie',
+//     isSelected: true
+//   },
+//   {
+//     userid:7,
+//     movieid: 104441,
+//     type: 'movie',
+//     isSelected: true
+//   },
+//   {
+//     userid:6,
+//     movieid: 634649,
+//     type: 'movie',
+//     isSelected: true
+//   },
+//   {
+//     userid:6,
+//     movieid:52814,
+//     type: 'tv',
+//     isSelected: true
+//   },
+//   {
+//     userid:6,
+//     movieid: 573164,
+//     type: 'movie',
+//     isSelected: true
+//   },
+//   {
+//     userid:6,
+//     movieid: 453395,
+//     type: 'movie',
+//     isSelected: true
+//   },
+//   {
+//     userid:6,
+//     movieid: 94605,
+//     type: 'tv',
+//     isSelected:true
+//   },
+//   {
+//     userid:6,
+//     movieid: 629542,
+//     type: 'movie',
+//     isSelected: true
+//   },
+//   {
+//     userid:6,
+//     movieid: 338953,
+//     type: 'movie',
+//     isSelected: true
+//   },
+//   {
+//     userid:12,
+//     movieid: 634649,
+//     type: 'movie',
+//     isSelected: true
+//   },
+//   {
+//     userid:12,
+//     movieid: 508947,
+//     type: 'movie',
+//     isSelected: true
+//   },
+//   {
+//     userid:12,
+//     movieid: 696806,
+//     type: 'movie',
+//     isSelected: true
+//   },
+// ]
 
 
 const Watchlist = () => {
-  const [ movies, setMovies ] = useState([]);
-  const [ category, setCategory ] = useState([]);
-//  const [ watchlistDB, setWatchlistDB ] = useState([]);
+  const [ watchlistDB, setWatchlistDB ] = useState([]);
 
   const removeWatchList = (movieId, type) => {
     console.log("movie ID", movieId)
     console.log("Category", type)
-    //search MovieDB
-    for(let i of watchlistDB) {
-      if (i.movieid === movieId && i.type === type) {
-        i.isSelected = false;
-      }
-    }
     let moviesList = [];
-    let categoryList = [];
-    for (let i of watchlistDB) {
-      const userId = Userfront.user.userId;
-      if (i.userid === userId && i.isSelected) {
-        moviesList.push(i.movieid);
-        categoryList.push(i.type);
+    for(let i of watchlistDB) {
+      if (i.movie_id === movieId && i.type === type) {
+        i.is_selected = false;
       }
     }
-    setMovies(moviesList);
-    setCategory(categoryList);
+    for (let i of watchlistDB) {
+      if (i.user_id === Userfront.user.userId && i.is_selected) {
+        moviesList.push(i);
+      }
+    }
+    setWatchlistDB(moviesList);
     //update the record
     //use setState (setMovie)
   }
 
-  // useEffect( () => {
-  //   const userId = Userfront.user.userId;
-  //   let moviesList = [];
-  //   let categoryList = [];
-  //   for (let i of watchlistDB) {
-  //     if (i.userid === userId && i.isSelected) {
-  //       moviesList.push(i.movieid);
-  //       categoryList.push(i.type);
-  //     }
-  //   }
-  //   setMovies(moviesList);
-  //   setCategory(categoryList);
-  // },[])
+    useEffect(() => {
+      axios
+        .get(`http://localhost:3001/watchlist/${Userfront.user.userId}`)
+        .then((response) => {
+          console.log(response.data);
+          setWatchlistDB(response.data);
+        })
+        .catch((error) => {
+          console.log(error.message);
+        });
+    }, []);
 
   return (
     <>
@@ -167,8 +158,8 @@ const Watchlist = () => {
         <h1>Watch List</h1>
         {
           watchlistDB.map((movie, index) => {
-            if (movie.userid === Userfront.user.userId && movie.isSelected) {
-              return <MovieWatchList removeWatchList = {removeWatchList} category={movie.type} id={movie.movieid} />              
+            if (movie.user_id === Userfront.user.userId && movie.is_selected) {
+              return <MovieWatchList key={index} removeWatchList = {removeWatchList} category={movie.type} id={movie.movie_id} />              
             }
           } )   
         } 

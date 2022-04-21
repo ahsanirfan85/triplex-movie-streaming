@@ -53,7 +53,7 @@ app.get("/watchlist/:userId", (req, res) => {
       res.header("Access-Control-Allow-Origin", "*");
       res.send(data.rows);
     })
-    .error((error) => {console.log(error)});
+    .catch((error) => {console.log(error)});
 
 });
 
