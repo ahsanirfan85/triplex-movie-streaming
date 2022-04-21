@@ -5,7 +5,7 @@
   flex-direction: column;
   width: 100%;
   border-radius: 5px;
-  margin: 2rem 10rem;
+  // margin: 2rem 10rem;
 }
 
 .content-wrapper {
@@ -104,6 +104,7 @@
   flex-direction: row;
   width: 100%;
   margin-top: 2.5rem;
+  background-color: #202020;
   border-radius: 5px;
   border: 1px solid #333;
 
@@ -115,17 +116,20 @@
 
 .user-info{
   width: 16.666667%;
-  padding: 1.2rem;
+  padding: 1.2rem 0.5rem;
 
-  @include mobile {
-    width: 100%;
-  }
+  // @include mobile {
+  //   @media only screen and (max-width: 600px)
+  //   {
+  //     width: 16.666667%;
+  //   }
+  // }
   
 
   img{
     width: 100%;
     height: auto;
-    width: 50px;
+    width: 30px;
     border-radius: 50%;
     overflow: hidden;
   }
