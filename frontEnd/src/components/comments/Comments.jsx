@@ -16,12 +16,12 @@ const Comments = ({ category, id, currentUserId }) => {
   const [activeComment, setActiveComment] = useState(null);
   
   const rootComments = backendComments.filter(
-    (backendComment) => backendComment.parentId === null
+    (backendComment) => backendComment.parent_id === null
   );
   
   const getReplies = (commentId) =>
     backendComments
-      .filter((backendComment) => backendComment.parentId === commentId)
+      .filter((backendComment) => backendComment.parent_id === commentId)
       .sort(
         (a, b) =>
           new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime()
