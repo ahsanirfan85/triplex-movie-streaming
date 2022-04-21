@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 import { Link } from 'react-router-dom';
 
+import axios from 'axios';
 import Userfront from '@userfront/core';
 import PageHeader from '../components/page-header/PageHeader';
 import MovieWatchList from '../components/watchlist/MovieWatchList';
@@ -118,6 +119,7 @@ const watchlistDB = [
 const Watchlist = () => {
   const [ movies, setMovies ] = useState([]);
   const [ category, setCategory ] = useState([]);
+  //const [ watchlistDB, setWatchlistDB ] = useState([]);
 
   const removeWatchList = (movieId, type) => {
     console.log("movie ID", movieId)

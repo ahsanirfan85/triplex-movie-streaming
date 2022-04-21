@@ -43,7 +43,18 @@ app.get("/posts/:type/:id/", (req, res) => {
       res.header("Access-Control-Allow-Origin", "*");
       res.send(data.rows);
     })
-    .catch((error) => {console.log(error)})
+    .catch((error) => {console.log(error)});
+});
+
+app.get("/watchlist/:userId", (req, res) => {
+  client
+    .query('SELECT * FROM watchlist WHERE user_id=$1',[req.params.userId])
+    .then((data) => {
+      res.header("Access-Control-Allow-Origin", "*");
+      res.send(data.rows);
+    })
+    .error((error) => {console.log(error)});
+
 });
 
 /* ROUTES GO ABOVE HERE */
