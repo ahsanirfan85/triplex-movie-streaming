@@ -43,24 +43,21 @@ import Watchlist from '../../components/button/Watchlist';
                                 </h2>
                                 <div className="genres">
                                     {
-                                        item.genres && item.genres.slice(0, 5).map((genre, i) => (
-                                            <span key={i} className="genres__item">{genre.name}</span>
-                                        ))
+                                      item.genres && item.genres.slice(0, 5).map((genre, i) => (
+                                          <span key={i} className="genres__item">{genre.name}</span>
+                                      ))
                                     }
                                 </div>
                                 <p className="overview">{item.overview}</p>
                                 <div className="cast">
-                                    <div className="section__header">
+                                  <div className="section__header">
                                     <button className="btn-like" onClick= {() => props.removeWatchList(props.id, props.category)}>
-                                        Remove from watchList
-                                        
-                                        </button>
-                                    </div>
-
+                                      Remove from watchList
+                                    </button>
+                                  </div>
                                 </div>
                             </div>
                         </div>
-
                     </>
                 )
             }
