@@ -6,7 +6,7 @@ export const createComment = async (text, parent_id = null) => {
     body: text,
     parent_id,
     user_id: Userfront.user.userId,
-    // createdAt: new Date().toISOString(),
+    created_at: new Date().toISOString(),
   }
 }
 

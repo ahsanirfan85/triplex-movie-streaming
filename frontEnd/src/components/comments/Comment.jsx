@@ -5,6 +5,8 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 
 const Comment = ({
+  category,
+  movie_id,
   comment,
   replies,
   setActiveComment,
@@ -34,8 +36,6 @@ const Comment = ({
     //currentUserId === comment.user_id && replies.length === 0 && !timePassed;
   const [canEdit, setCanEdit] = useState(false)//currentUserId === comment.user_id && !timePassed;
 
-  console.log(`${currentUserId} ${comment.user_id} ${currentUserId === comment.user_id}`);
-  
   useEffect(() => {
     axios({
       method: 'get',
@@ -45,7 +45,6 @@ const Comment = ({
       }
     })
       .then((response) => {
-        console.log(response.data.name);
         setCommenterName(response.data.name);
         if (currentUserId === comment.user_id) {
           setCanDelete(true);
@@ -114,8 +113,12 @@ const Comment = ({
         </div>
         {isReplying && (
           <CommentForm
+            category={category}
+            user_id={currentUserId}
+            movie_id={movie_id}
+            comment_id={replyId}
             submitLabel="Reply"
-            handleSubmit={(text) => addComment(text, replyId)}
+            handleSubmit={addComment}
           />
         )}
         {replies.length > 0 && (
