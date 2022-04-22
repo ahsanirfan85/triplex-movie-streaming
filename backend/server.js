@@ -121,6 +121,20 @@ app.put("/watchlist/add/:type/:user_id/:id", (req, res) => {
     });
 });
 
+// Get the Average Rating for a given movie
+app.get("/rate/:type/:movie_id", (req, res) => {
+  client
+    .query("SELECT SUM(rate) / COUNT(user_id) AS Average_Rate FROM rate WHERE movie_id = $1 and type = $2", [req.params.movieId, req.params.type])
+    .then((data) => {
+      res.header("Access-Control-Allow-Origin", "*")
+      res.send(data.rows)
+      console.log(data.rows);
+    })
+    .catch((error) => {
+      console.log(error);
+    })
+});
+
 /* ROUTES GO ABOVE HERE */
 
 // Express app listening for requests
