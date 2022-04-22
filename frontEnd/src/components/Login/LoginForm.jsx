@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import Userfront from '@userfront/core';
 import './styles.scss';
 import Alert from './Alert';
@@ -6,6 +6,7 @@ import Alert from './Alert';
 Userfront.init('9ny8z7vb');
 
 class LoginForm extends React.Component {
+  
     constructor(props) {
       super(props);
       this.state = {
@@ -18,7 +19,7 @@ class LoginForm extends React.Component {
       this.handleSubmit = this.handleSubmit.bind(this);
       this.setAlertMessage = this.setAlertMessage.bind(this);
     }
-  
+    
     handleInputChange(event) {
       event.preventDefault();
       const target = event.target;
@@ -44,7 +45,6 @@ class LoginForm extends React.Component {
     setAlertMessage(message) {
         this.setState({ alertMessage: message });
     }
-  
     render() {
       return (
         <div className="login">
@@ -73,8 +73,6 @@ class LoginForm extends React.Component {
             </label>
             <Alert message={this.state.alertMessage} /> 
             <button className="button-84" role="button" type="submit">Log in</button>
-            <p>Signup here</p>
-
           </form>
         </div>
       );

@@ -3,14 +3,15 @@ import { useParams } from 'react-router';
 import Comments from "../components/comments/Comments";
 import PageHeader from '../components/page-header/PageHeader';
 import Userfront from '@userfront/core';
+import RequireAuth from '../components/Login/RequireAuth';
 // import apiConfig from '../api/apiConfig';
 // import tmdbApi from '../api/tmdbApi';
 
 const Forums = () => {
 
     const { category, id } = useParams();
-    // const [item, setItem] = useState(null);
 
+    // const [item, setItem] = useState(null);
 
     // useEffect(() => {
     //     const getDetail = async () => {
@@ -21,15 +22,16 @@ const Forums = () => {
     //     getDetail();
     // }, [category, id]);
 
-
     return (
     <>
             <PageHeader />
+            <RequireAuth>
             {/* <div className="banner" style={{backgroundImage: `url(${apiConfig.originalImage(item.backdrop_path || item.poster_path)})`}}></div> */}
-            <div className="comments__header"><h1>Discussion Forum</h1></div>
-            <div className="content-wrapper">
-          <Comments category={ category } id={ id } currentUserId={ Userfront.user.userId } />
-            </div>
+              <div className="comments__header"><h1>Discussion Forum</h1></div>
+              <div className="content-wrapper">
+              <Comments category={ category } id={ id } currentUserId={ Userfront.user.userId } />
+              </div>
+            </RequireAuth>
     </>
   );
 };

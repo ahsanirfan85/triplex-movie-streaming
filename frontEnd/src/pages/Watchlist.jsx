@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 // import { useParams } from 'react-router';
-// import { Link } from 'react-router-dom';
+import RequireAuth from '../components/Login/RequireAuth';
 
 import axios from 'axios';
 import Userfront from '@userfront/core';
@@ -43,6 +43,7 @@ const Watchlist = () => {
   return (
     <>
       <PageHeader />
+      <RequireAuth>
       <div className='container'>
         <div className='section mb-3'>
           <h1>Watch List</h1>
@@ -52,6 +53,7 @@ const Watchlist = () => {
             })} 
         </div>
       </div>
+      </RequireAuth>
     </>
   );
 };
