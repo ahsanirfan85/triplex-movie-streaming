@@ -12,6 +12,7 @@ const Forums = () => {
   console.log(category, id);
 
 
+
     return (
     <>
       <PageHeader />

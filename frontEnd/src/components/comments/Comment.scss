@@ -12,7 +12,14 @@
   flex-direction: column;
   width: 100%;
   border-radius: 5px;
-  // margin: 2rem 10rem;
+  
+  // @media screen and (max-width: 600px) {
+  //   display: flex;
+  //   justify-content: center;
+  //   align-items: center;
+  //   width: 100%;
+  // }
+
 }
 
 .content-wrapper {
@@ -20,12 +27,11 @@
   justify-content: center;
   width: 900px;
 
-  @media screen and (max-width: 600px) {
+  @include mobile {
     width: 100%;
   }
     
   }
-
 
 .comments {
   display: flex;
@@ -59,15 +65,6 @@
   justify-content: flex-start;
   width: 100%;
 
-  // &__title {
-  //   font-size: large;
-  //   font-weight: 500;
-  // }
-
-}
-
-.comment-content {
-  width: 100%;
 }
 
 .comment-form-button{
@@ -86,6 +83,10 @@
     transition: ease-in-out 0.1s;
     cursor: pointer;
   }
+
+  @include mobile {
+    font-size: 1.5rem;
+  }
   
 }
 
@@ -96,6 +97,10 @@
   border-radius: 5px;
   padding: 1rem;
   margin: 0.5rem 0 0.5rem 0;
+
+  @include mobile {
+    font-size: 1.5rem;
+  }
 }
 
 .comments-form {
@@ -109,12 +114,16 @@
   text-align: center;
 
   @include mobile {
-    font-size: 1rem;
+    font-size: 1.5rem;
   }
 }
 
 .comment-date{
   text-align: center;
+
+  @include mobile {
+    font-size: 1.5rem;
+  }
 }
 
 .comment-posts {
@@ -131,12 +140,12 @@
     transition: ease-in-out 0.1s;
   }
 
-  // @media screen and (max-width: 600px) {
-  //   width: 100%;
-  // }
+  @include mobile {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+  }
     
-  
-
 
 }
 
@@ -151,6 +160,24 @@
     width: 30px;
     border-radius: 50%;
     overflow: hidden;
+  }
+
+  @include mobile {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    padding: 1rem;
+    gap: 1rem;
+    
+    img{
+      width: 100%;
+      height: auto;
+      width: 20px;
+      border-radius: 50%;
+      overflow: hidden;
+    }
   }
 
 }
@@ -187,6 +214,10 @@
     cursor: pointer;
   }
 
+  @include mobile {
+    font-size: 1.5rem;
+  }
+
 }
 
 .comment-text {
@@ -197,9 +228,23 @@
   border-radius: 5px;
   background-color: #333333;
 
+
+  @include mobile {
+    font-size: 1.5rem;
+  }
 }
 
 .comment-right-part {
   width: 83.333333%;
   margin: 0 1rem 1rem 0;
+
+  @include mobile {
+    width: 100%;
+    margin: 0;
+  }
+}
+
+.comment-content {
+  width: 100%;
+  padding: 1rem;
 }

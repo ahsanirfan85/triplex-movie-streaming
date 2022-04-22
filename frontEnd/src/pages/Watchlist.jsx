@@ -45,7 +45,7 @@ const Watchlist = () => {
       <PageHeader />
       <div className='container'>
         <div className='section mb-3'>
-          <h1>Watch List</h1>
+          <h1 className='center-title'>Watch List</h1>
             {watchlistDB.map((movie, index) => {
               if (movie.user_id === Userfront.user.userId && movie.is_selected) {
                 return <MovieWatchList key={index} removeWatchList = {removeWatchList} category={movie.type} id={movie.movie_id} />}
