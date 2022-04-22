@@ -7,8 +7,8 @@ import {
   // getComments as getCommentsApi,
 
   createComment as createCommentApi,
-  updateComment as updateCommentApi,
-  deleteComment as deleteCommentApi,
+  // updateComment as updateCommentApi,
+  // deleteComment as deleteCommentApi,
 } from "../../api";
 
 const Comments = ({ category, id, currentUserId }) => {
@@ -27,35 +27,71 @@ const Comments = ({ category, id, currentUserId }) => {
           new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime()
       );
 
-  const addComment = (text, parent_id) => {
-    console.log(text, parent_id);
-    createCommentApi(text, parent_id).then((comment) => {
-      setBackendComments([comment, ...backendComments]);
-      setActiveComment(null);
-    });
+  const addComment = (text, category, movie_id, user_id, parent_id) => {
+    // console.log(text, parent_id);
+    // createCommentApi(text, parent_id).then((comment) => {
+    //   console.log(comment);
+    //   setBackendComments([comment, ...backendComments]);
+    //   setActiveComment(null);
+    // });
+    console.log(text);
+    console.log(category);
+    console.log(movie_id);
+    console.log(user_id);
+    console.log(parent_id);
+    axios
+      .post(`http://localhost:3001/posts/${category}/${parent_id}/${movie_id}/${user_id}`, text)
+      .then((response) => {
+        console.log(response.data);
+        setBackendComments(response.data);
+        setActiveComment(null);
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
   };
 
   const updateComment = (text, commentId) => {
-    updateCommentApi(text).then(() => {
-      const updatedBackendComments = backendComments.map((backendComment) => {
-        if (backendComment.id === commentId) {
-          return { ...backendComment, body: text };
-        }
-        return backendComment;
+    // updateCommentApi(text).then(() => {
+    //   const updatedBackendComments = backendComments.map((backendComment) => {
+    //     if (backendComment.id === commentId) {
+    //       return { ...backendComment, body: text };
+    //     }
+    //     return backendComment;
+    //   });
+    //   setBackendComments(updatedBackendComments);
+    //   setActiveComment(null);
+    // });
+    axios
+      .put(`http://localhost:3001/posts/update/${commentId}`, text)
+      .then((response) => {
+        console.log(response.data);
+        setBackendComments(response.data);
+        setActiveComment(null);
+      })
+      .catch((error) => {
+        console.log(error.message);
       });
-      setBackendComments(updatedBackendComments);
-      setActiveComment(null);
-    });
+    ;
   };
 
   const deleteComment = (commentId) => {
     if (window.confirm("Are you sure you want to remove comment?")) {
-      deleteCommentApi().then(() => {
-        const updatedBackendComments = backendComments.filter(
-          (backendComment) => backendComment.id !== commentId
-        );
-        setBackendComments(updatedBackendComments);
-      });
+      // deleteCommentApi().then(() => {
+      //   const updatedBackendComments = backendComments.filter(
+      //     (backendComment) => backendComment.id !== commentId
+      //   );
+      //   setBackendComments(updatedBackendComments);
+      // });
+      axios
+        .delete(`http://localhost:3001/posts/${commentId}`)
+        .then((response) => {
+          console.log(response.data);
+          setBackendComments(response.data);
+        })
+        .catch((error) => {
+          console.log(error.message);
+        });
     }
   };
 
@@ -79,12 +115,14 @@ const Comments = ({ category, id, currentUserId }) => {
     <>
       <div className="comments">
         <div className='comments-post'>
-            <CommentForm submitLabel="Create Post" handleSubmit={ addComment } />
+            <CommentForm user_id={currentUserId} comment_id={null} category={category} movie_id={id} submitLabel="Create Post" handleSubmit={ addComment } />
         </div>
         
         <div className="comments-container">
           {rootComments.map((rootComment) => (
             <Comment
+              category={category}
+              movie_id={id}
               key={rootComment.id}
               comment={rootComment}
               replies={getReplies(rootComment.id)}

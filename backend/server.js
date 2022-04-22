@@ -47,22 +47,103 @@ app.get("/posts/:type/:id/", (req, res) => {
       req.params.type,
     ])
     .then((data) => {
-      console.log(data.rows)
       res.header("Access-Control-Allow-Origin", "*")
       res.send(data.rows)
-      console.log(data, req.params)
     })
     .catch((error) => {
       console.log(error)
     })
 });
 
+app.post("/posts/:type/:parent/:movie_id/:user_id", (req, res) => {
+  console.log(req.params.parent);
+  if (req.params.parent === 'null') {
+    client
+    .query('INSERT INTO posts (type, parent_id, movie_id, body, user_id, created_at) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *', [req.params.type, null, req.params.movie_id, Object.keys(req.body)[0], req.params.user_id, new Date().toISOString()])
+    .then((data) => {
+      client
+        .query('SELECT * FROM posts WHERE movie_id=$1 AND type=$2;', [data.rows[0].movie_id, data.rows[0].type])
+        .then((data) => {
+          res.header("Access-Control-Allow-Origin", "*");
+          res.send(data.rows);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    })
+    .catch((error) => {
+      console.log(error.message);
+    });
+  } else {
+    client
+    .query('INSERT INTO posts (type, parent_id, movie_id, body, user_id, created_at) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *', [req.params.type, req.params.parent, req.params.movie_id, Object.keys(req.body)[0], req.params.user_id, new Date().toISOString()])
+    .then((data) => {
+      client
+        .query('SELECT * FROM posts WHERE movie_id=$1 AND type=$2;', [data.rows[0].movie_id, data.rows[0].type])
+        .then((data) => {
+          res.header("Access-Control-Allow-Origin", "*");
+          res.send(data.rows);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    })
+    .catch((error) => {
+      console.log(error.message);
+    });
+  }
+
+});
+
+app.delete("/posts/:id", (req, res) => {
+  client
+    .query("DELETE FROM posts WHERE id=$1 RETURNING *;", [req.params.id])
+    .then((data) => {
+      console.log(req.params.id);
+      console.log(data.rows[0].type);
+      client
+        .query('SELECT * FROM posts WHERE movie_id=$1 AND type=$2;', [data.rows[0].movie_id, data.rows[0].type])
+        .then((data) => {
+          console.log(data.rows);
+          res.header("Access-Control-Allow-Origin", "*");
+          res.send(data.rows);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+});
+
+app.put("/posts/update/:id", (req, res) => {
+  console.log(req.params.id);
+  console.log(Object.keys(req.body)[0]);
+  client
+    .query("UPDATE posts SET body=$1 WHERE id=$2 RETURNING *;", [Object.keys(req.body)[0], req.params.id])
+    .then((data) => {
+      client
+        .query('SELECT * FROM posts WHERE movie_id=$1 AND type=$2;', [data.rows[0].movie_id, data.rows[0].type])
+        .then((data) => {
+          console.log(data.rows);
+          res.header("Access-Control-Allow-Origin", "*");
+          res.send(data.rows);})
+        .catch((error) => {
+          console.log(error.message);
+        });
+    })
+    .catch((error) => {
+      console.log(error.message);
+    });
+});
+
 app.get("/watchlist/:userId", (req, res) => {
   client
-    .query("SELECT * FROM watchlist WHERE user_id=$1", [req.params.userId])
+    .query("SELECT * FROM watchlist WHERE user_id=$1;", [req.params.userId])
     .then((data) => {
-      res.header("Access-Control-Allow-Origin", "*")
-      res.send(data.rows)
+      res.header("Access-Control-Allow-Origin", "*");
+      res.send(data.rows);
     })
     .catch((error) => {
       console.log(error);
@@ -87,7 +168,7 @@ app.get("/watchlist/:userId/:type/:movieId", (req, res) => {
 
 app.put("/watchlist/remove/:type/:user_id/:id", (req, res) => {
   client
-    .query("UPDATE watchlist SET is_selected=false WHERE type=$1 AND user_id=$2 AND movie_id=$3", [req.params.type, req.params.user_id, req.params.id])
+    .query("UPDATE watchlist SET is_selected=false WHERE type=$1 AND user_id=$2 AND movie_id=$3;", [req.params.type, req.params.user_id, req.params.id])
     .then((data) => {
       res.header("Access-Control-Allow-Origin", "*");
       res.send(data.rows);
@@ -99,7 +180,7 @@ app.put("/watchlist/remove/:type/:user_id/:id", (req, res) => {
 
 app.put("/watchlist/update/:type/:user_id/:id", (req, res) => {
   client
-    .query("UPDATE watchlist SET is_selected=true WHERE type=$1 AND user_id=$2 AND movie_id=$3", [req.params.type, req.params.user_id, req.params.id])
+    .query("UPDATE watchlist SET is_selected=true WHERE type=$1 AND user_id=$2 AND movie_id=$3;", [req.params.type, req.params.user_id, req.params.id])
     .then((data) => {
       res.header("Access-Control-Allow-Origin", "*");
       res.send(data.rows);
@@ -111,7 +192,7 @@ app.put("/watchlist/update/:type/:user_id/:id", (req, res) => {
 
 app.put("/watchlist/add/:type/:user_id/:id", (req, res) => {
   client
-    .query("INSERT INTO watchlist (user_id, movie_id, type, is_selected) VALUES ($1, $2, $3, $4)", [req.params.user_id, req.params.id, req.params.type, true])
+    .query("INSERT INTO watchlist (user_id, movie_id, type, is_selected) VALUES ($1, $2, $3, $4);", [req.params.user_id, req.params.id, req.params.type, true])
     .then((data) => {
       res.header("Access-Control-Allow-Origin", "*");
       res.send(data.rows);
