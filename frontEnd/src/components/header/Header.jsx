@@ -44,7 +44,6 @@ const Header = () => {
             path: '/watchlist'
         }
     ];
-    console.log("userfront", Userfront);
 
     const [headerNav, setHeaderNav] = useState(loggedOut);
     const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -56,7 +55,6 @@ const Header = () => {
             setHeaderNav(loggedIn);
             setIsLoggedIn(true);
         }
-        
     }, []);
 
     const { pathname } = useLocation();
