@@ -13,11 +13,13 @@ import VideoList from './VideoList';
 import MovieList from '../../components/movie-list/MovieList';
 import WatchList from '../../components/button/Watchlist';
 import RateButton from '../../components/button/RateButton';
+import axios from 'axios';
 
 const Detail = (props) => {
 
     const { category, id } = useParams();
     const [item, setItem] = useState(null);
+    const [label, setLabel] = useState('');
     
     useEffect(() => {
         const getDetail = async () => {
@@ -27,6 +29,18 @@ const Detail = (props) => {
         }
         getDetail();
     }, [category, id]);
+
+    useEffect(() => {
+        axios
+            .get(`http://localhost:3001/watchlist/${Userfront.user.userId}/${category}/${id}`)
+            .then((response) => {
+                console.log(response.data)
+                setLabel(response.data);
+            })
+            .catch((error) => {
+                console.log(error.message);
+            });
+    }, []);
 
     return (
         <>
@@ -59,7 +73,7 @@ const Detail = (props) => {
                                     </div>
                                     <CastList id={ item.id } />
                                     <div className='social'>
-                                        <WatchList userId={Userfront.user.userId} type = {category} movieId = {id} />
+                                        <WatchList label={label} userId={Userfront.user.userId} type = {category} movieId = {id} />
 
                                         <RateButton />
                                     </div>

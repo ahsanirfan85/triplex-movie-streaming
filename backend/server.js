@@ -69,12 +69,49 @@ app.get("/watchlist/:userId", (req, res) => {
     })
 });
 
+app.get("/watchlist/:userId/:type/:movieId", (req, res) => {
+  client
+    .query("SELECT is_selected FROM watchlist WHERE user_id=$1 AND movie_id=$2 AND type=$3;", [req.params.userId, req.params.movieId, req.params.type])
+    .then((data) => {
+      let label = '';
+      if (typeof data.rows[0] === 'undefined' || !data.rows[0].is_selected) {
+        label = 'Add to Watch List '
+      } else {
+        label = 'Remove from Watch List '
+      }
+      console.log(label);
+      res.header("Access-Control-Allow-Origin", "*");
+      res.send(label);
+    });
+})
+
 app.put("/watchlist/remove/:type/:user_id/:id", (req, res) => {
-  console.log(req.params.type);
-  console.log(req.params.user_id);
-  console.log(req.params.id);
   client
     .query("UPDATE watchlist SET is_selected=false WHERE type=$1 AND user_id=$2 AND movie_id=$3", [req.params.type, req.params.user_id, req.params.id])
+    .then((data) => {
+      res.header("Access-Control-Allow-Origin", "*");
+      res.send(data.rows);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+});
+
+app.put("/watchlist/update/:type/:user_id/:id", (req, res) => {
+  client
+    .query("UPDATE watchlist SET is_selected=true WHERE type=$1 AND user_id=$2 AND movie_id=$3", [req.params.type, req.params.user_id, req.params.id])
+    .then((data) => {
+      res.header("Access-Control-Allow-Origin", "*");
+      res.send(data.rows);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+});
+
+app.put("/watchlist/add/:type/:user_id/:id", (req, res) => {
+  client
+    .query("INSERT INTO watchlist (user_id, movie_id, type, is_selected) VALUES ($1, $2, $3, $4)", [req.params.user_id, req.params.id, req.params.type, true])
     .then((data) => {
       res.header("Access-Control-Allow-Origin", "*");
       res.send(data.rows);
