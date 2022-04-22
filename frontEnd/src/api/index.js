@@ -5,7 +5,7 @@ export const createComment = async (text, parent_id = null) => {
     id: Math.random().toString(36).substr(2, 9),
     body: text,
     parent_id,
-    user_id: Userfront.user.name,
+    user_id: Userfront.user.userId,
     // createdAt: new Date().toISOString(),
   }
 }

@@ -1,5 +1,5 @@
-import React from 'react';
-import { Link, Redirect } from 'react-router-dom';
+import React, {useEffect} from 'react';
+import { Link } from 'react-router-dom';
 
 import { OutlineButton } from '../components/button/Button';
 import HeroSlide from '../components/hero-slide/HeroSlide';
@@ -7,15 +7,9 @@ import MovieList from '../components/movie-list/MovieList';
 
 import { category, movieType, tvType } from '../api/tmdbApi';
 
-import Userfront from '@userfront/react';
 
 const Home = () => {
 
-    if (!Userfront.accessToken()) {
-        return (
-            <Redirect to={{pathname: '/login'}} />
-        )
-    }
     return (
         <>
             <HeroSlide/>
@@ -23,7 +17,7 @@ const Home = () => {
                 <div className="section mb-3">
                     <div className="section__header mb-2">
                         <h2>Trending Movies</h2>
-                        <Link to="/movie">
+                        <Link className="link" to="/movie">
                             <OutlineButton className="small">View more</OutlineButton>
                         </Link>
                     </div>

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 // import { useParams } from 'react-router';
-// import { Link } from 'react-router-dom';
+import RequireAuth from '../components/Login/RequireAuth';
 
 import axios from 'axios';
 import Userfront from '@userfront/core';
@@ -51,15 +51,17 @@ const Watchlist = () => {
   return (
     <>
       <PageHeader />
+      <RequireAuth>
       <div className='container'>
         <div className='section mb-3'>
-          <h1>Watch List</h1>
+          <h1 className='center-title'>Watch List</h1>
             {watchlistDB.map((movie, index) => {
               if (movie.user_id === Userfront.user.userId && movie.is_selected) {
                 return <MovieWatchList key={index} removeWatchList = {removeWatchList} category={movie.type} id={movie.movie_id} />}
             })} 
         </div>
       </div>
+      </RequireAuth>
     </>
   );
 };

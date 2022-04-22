@@ -8,7 +8,9 @@
     background-repeat: no-repeat;
 
     &__content {
-        max-width: 1000px;
+        
+
+        
 
         &__logo {
             @include flex(center, center);
@@ -17,15 +19,22 @@
 
         &__menus {
             display: grid;
+            justify-content: center;
             grid-template-columns: repeat(3, 1fr);
 
             @include mobile {
                 grid-template-columns: repeat(2, 1fr);
             }
+
+            @include mobile {
+                display: flex;
+                flex-direction: row;
+                
+            }
         }
 
         &__menu {
-            @include flex(flex-start, flex-start);
+            @include flex(center, center);
             flex-direction: column;
             margin-top: 1rem;
 

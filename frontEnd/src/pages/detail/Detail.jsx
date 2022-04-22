@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 import { Link } from 'react-router-dom';
 import Userfront from '@userfront/core';
+import RequireAuth from '../../components/Login/RequireAuth';
 
 import tmdbApi from '../../api/tmdbApi';
 import apiConfig from '../../api/apiConfig';
@@ -44,6 +45,7 @@ const Detail = (props) => {
 
     return (
         <>
+            <RequireAuth>
             {
                 item && (
                     <>
@@ -99,6 +101,7 @@ const Detail = (props) => {
                     </>
                 )
             }
+            </RequireAuth>
         </>
     );
 }
