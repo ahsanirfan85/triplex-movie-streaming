@@ -140,7 +140,7 @@ app.put("/posts/update/:id", (req, res) => {
 
 app.get("/watchlist/:userId", (req, res) => {
   client
-    .query("SELECT * FROM watchlist WHERE user_id=$1 ORDER BY id DESC;", [req.params.userId])
+    .query("SELECT * FROM watchlist WHERE user_id=$1 ORDER BY updated_at DESC;", [req.params.userId])
     .then((data) => {
       res.header("Access-Control-Allow-Origin", "*");
       res.send(data.rows);
