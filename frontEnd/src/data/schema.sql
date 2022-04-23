@@ -3,7 +3,7 @@
 
 CREATE TABLE rate (
 id SERIAL PRIMARY KEY,
-	user_id INT NOT NULL,
+  user_id INT NOT NULL,
   movie_id INT NOT NULL,
   rate INT NOT NULL,
   type VARCHAR NOT NULL
@@ -20,13 +20,12 @@ ALTER TABLE watchlist
 
 -- Function to set current updated time to columns
 
-
 CREATE OR REPLACE FUNCTION set_updated_at()
     RETURNS TRIGGER AS
 $$
 BEGIN
-    OLD.updated_at = NOW();
-    RETURN OLD;
+    NEW.updated_at = NOW();
+    RETURN NEW;
 END;
 $$ LANGUAGE 'plpgsql';
 
