@@ -1,13 +1,17 @@
 // Loading .env data into process.env
 require("dotenv").config()
 
+const bodyparser = require("body-parser");
+
 // Defining the Port
 const PORT = 3001
 
 // Express App Setup
 const express = require("express") // requiring express
 const app = express() // what does this do?
-app.use(express.urlencoded({ extended: true })) // what does this do?
+app.use(bodyparser.urlencoded({extended: true}))
+app.use(express.json());
+app.use(express.urlencoded({ extended: true}));
 // app.use(express.static("public")); // serves up the static files to the front end
 
 // CORS package
@@ -51,19 +55,85 @@ app.get("/rate/:type/:movieId/", (req, res) => {
     ])
   
     .then((data) => {
-      console.log("Req param type, ", req.params.type)
-      console.log("Req param Movie ID, ", req.params.movieId)
-      console.log("type of category ", typeof req.params.type)
-      console.log("type of id ", typeof req.params.movieId)
-      console.log("Parameteres ", req.params)
-      console.log(data.rows)
-      res.header("Access-Control-Allow-Origin", "*")
-      res.send(data.rows)
+      res.header("Access-Control-Allow-Origin", "*");
+      res.send(data.rows);
     })
     .catch((error) => {
-      console.log(error)
+      console.log(error);
     })
 });
+
+// Get all ratings by a given userId
+
+// app.get("/rate/:userId/:movieId/:type/:rate", (req, res) => {
+  app.post("/rate", (req, res) => {
+  console.log("ABC")
+const {userId, movieId, type, rate} = req.body;
+console.log(req.body)
+console.log(`User ID is ${userId} Movie ID is ${movieId} and type is ${type}`)  
+client
+    .query("SELECT * FROM rate Where user_id =$1 and movie_id =$2 and type =$3", [
+      userId,
+      movieId,
+      type,
+    ])
+    .then((data) => {
+      
+      console.log("data rows ", data.rows)
+      console.log("Length of return data ", data.rows.length)
+      if (data.rows.length === 0) {
+        client.query(`Insert Into rate (user_id, movie_id, rate, type) Values($1,$2,$3,$4) RETURNING *`, [userId, movieId, rate, type])
+        
+        .then((data) => {
+          console.log("def ")
+          console.log(data.rows)
+          res.send(data.rows);
+          return; 
+        })
+      } else {
+        const id = data.rows[0].id;
+        client.query(`Update rate set rate=$1 Where user_id=$2 and movie_id=$3 and type=$4 and id=$5 RETURNING *`, [rate, userId, movieId, type, id])
+        .then((data) => {
+          console.log("xyz")
+          console.log(data.rows)
+          res.send(data.rows)
+          return 
+        })
+      }
+      // res.header("Access-Control-Allow-Origin", "*");
+      // res.send(data.rows);
+    })
+    .catch((error) => {
+      console.log(error);
+    })
+});
+
+// Update an existing rating
+app.put("/rate/update/:type/:movieId/:rate", (req, res) => {
+  client
+    .query("UPDATE rate SET rate=$1 WHERE type=$2 AND movie_id=$3 AND user_id=$4;", [req.params.rate, req.params.type, req.params.movieId, req.params.userId])
+    .then((data) => {
+      res.header("Access-Control-Allow-Origin", "*");
+      res.send(data.rows);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+});
+
+// Add new rating to the database
+app.put("/rate/add/:userId/:movieId/:rate/:type", (req, res) => {
+  client
+    .query("INSERT INTO rate (user_id, movie_id, rate, type) VALUES ($1, $2, $3, $4);", [req.params.userId, req.params.movieId, req.params.rate, req.params.type])
+    .then((data) => {
+      res.header("Access-Control-Allow-Origin", "*");
+      res.send(data.rows);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+});
+
 
 app.get("/posts/:type/:id/", (req, res) => {
   client

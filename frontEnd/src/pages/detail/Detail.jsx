@@ -76,7 +76,7 @@ const Detail = (props) => {
                                     <div className='social'>
                                         <WatchList label={label} userId={Userfront.user.userId} type = {category} movieId = {id} />
 
-                                        <RateButton type = {category} movieId = {id} />
+                                        <RateButton type = {category} movieId = {id} userId={Userfront.user.userId} />
                                     </div>
                                     <div className='button-link'>
                                         <Link to="/movieplay" className='social__link'>Play Now!</Link>
