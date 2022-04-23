@@ -6,6 +6,8 @@ import LogoutButton from '../Login/LogoutButton';
 import Cookies from 'js-cookie'
 import Userfront from '@userfront/core';
 
+const getScr = window.innerWidth > 835;
+
 const Header = () => {
     const loggedOut = [
         {
@@ -21,14 +23,14 @@ const Header = () => {
             path: '/signup'
         }
     ];
-
+    
     const loggedIn = [
         {
-            display: `Welcome, ${Userfront.user.name}!`,
+            display: `${(getScr) ? Userfront.user.name : ""}`,
             path: ''
         },
         {
-            display: 'Home',
+            display: `${(getScr) ? "Home" : ""}`,
             path: '/'
         },
         {
