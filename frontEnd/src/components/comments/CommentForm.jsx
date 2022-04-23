@@ -1,6 +1,10 @@
 import { useState } from "react";
 
 const CommentForm = ({
+  user_id,
+  category,
+  movie_id,
+  comment_id,
   handleSubmit,
   submitLabel,
   hasCancelButton = false,
@@ -11,7 +15,7 @@ const CommentForm = ({
   const isTextareaDisabled = text.length === 0;
   const onSubmit = (event) => {
     event.preventDefault();
-    handleSubmit(text);
+    handleSubmit(text, category, movie_id, user_id, comment_id);
     setText("");
   };
 

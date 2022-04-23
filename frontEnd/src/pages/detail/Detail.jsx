@@ -35,7 +35,6 @@ const Detail = (props) => {
         axios
             .get(`http://localhost:3001/watchlist/${Userfront.user.userId}/${category}/${id}`)
             .then((response) => {
-                console.log(response.data)
                 setLabel(response.data);
             })
             .catch((error) => {
@@ -77,7 +76,7 @@ const Detail = (props) => {
                                     <div className='social'>
                                         <WatchList label={label} userId={Userfront.user.userId} type = {category} movieId = {id} />
 
-                                        <RateButton />
+                                        <RateButton type = {category} movieId = {id} />
                                     </div>
                                     <div className='button-link'>
                                         <Link to="/movieplay" className='social__link'>Play Now!</Link>
