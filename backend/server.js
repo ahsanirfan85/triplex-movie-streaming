@@ -40,6 +40,31 @@ app.use(morgan("dev")) // use morgan in this file
 
 /* ROUTES GO BELOW HERE */
 
+// Get the Average Rating for a given movie
+
+app.get("/rate/:type/:movieId/", (req, res) => {
+
+  client
+    .query("SELECT SUM(rate) as total_rate, COUNT(user_id) AS user_rate from rate WHERE type =$1 and movie_id =$2", [
+      req.params.type,
+      req.params.movieId,
+    ])
+  
+    .then((data) => {
+      console.log("Req param type, ", req.params.type)
+      console.log("Req param Movie ID, ", req.params.movieId)
+      console.log("type of category ", typeof req.params.type)
+      console.log("type of id ", typeof req.params.movieId)
+      console.log("Parameteres ", req.params)
+      console.log(data.rows)
+      res.header("Access-Control-Allow-Origin", "*")
+      res.send(data.rows)
+    })
+    .catch((error) => {
+      console.log(error)
+    })
+});
+
 app.get("/posts/:type/:id/", (req, res) => {
   client
     .query("SELECT * FROM posts WHERE movie_id=$1 AND type=$2;", [
@@ -121,19 +146,7 @@ app.put("/watchlist/add/:type/:user_id/:id", (req, res) => {
     });
 });
 
-// Get the Average Rating for a given movie
-app.get("/rate/:type/:movie_id", (req, res) => {
-  client
-    .query("SELECT SUM(rate) / COUNT(user_id) AS Average_Rate FROM rate WHERE movie_id = $1 and type = $2", [req.params.movieId, req.params.type])
-    .then((data) => {
-      res.header("Access-Control-Allow-Origin", "*")
-      res.send(data.rows)
-      console.log(data.rows);
-    })
-    .catch((error) => {
-      console.log(error);
-    })
-});
+
 
 /* ROUTES GO ABOVE HERE */
 
