@@ -11,8 +11,6 @@ const HeroButtons = ({ data }) => {
   // const searchQuery = `https://google.com/search?q=Watch ${data.title ||
   //   data.name} Online`;
   
-  
-
   const addToWatchlist = () => {
     const { id, backdrop_path, poster_path, name, title } = data;
     const newElement = { id, backdrop_path, poster_path, name, title };

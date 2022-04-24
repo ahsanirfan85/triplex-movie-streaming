@@ -4,7 +4,7 @@ import axios from 'axios';
 
 export default function RateButton(props) {
   const [rating, setRating] = useState(0); // initial rating value
-  const [ratingDB, setRatingDB] = useState([]);
+  // const [ratingDB, setRatingDB] = useState([]);
 
   // Helper function to convert the result to percentage
   const calculateAverage = (totalRate, countUserRate) => {
@@ -33,12 +33,12 @@ export default function RateButton(props) {
     // .get(`http://localhost:3001/rate/${userId}/${movieId}/${type}/${rate}`)
     .then((response) => {
       console.log("All ratings by given userId: ", response.data);
-      setRatingDB(response.data)
+      // setRatingDB(response.data)
     })
     .catch((error) => {
       console.log(error);
     });
-    console.log(userId, Number(movieId), rate, type)
+    
     // const movieIds= Number(movieId)
     // let isUserRatedMovie = false;
     // for (const rate of ratingDB) {
