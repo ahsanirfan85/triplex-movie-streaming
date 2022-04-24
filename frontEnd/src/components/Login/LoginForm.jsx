@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import Userfront from '@userfront/core';
 import './styles.scss';
 import Alert from './Alert';
