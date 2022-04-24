@@ -51,8 +51,8 @@ import './moviewatchlist.scss';
                                 <p className="overview">{item.overview}</p>
                                 <div className="cast">
                                   <div className="section__header">
-                                    <button className="btn-like" onClick= {() => props.removeWatchList(props.id, props.category)}>
-                                      Remove from watchList
+                                    <button className="btn-like-wl" onClick= {() => props.removeWatchList(props.id, props.category)}>
+                                      Remove from watchlist
                                     </button>
                                   </div>
                                 </div>

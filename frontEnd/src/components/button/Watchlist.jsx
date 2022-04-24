@@ -112,7 +112,6 @@ const WatchListButton = ({  label, userId, type, movieId }) => {
       <>
         <button className="btn-like" onClick= {() => addWatchList(movieId, type, userId)}>
           {buttonLabel === '' ? label : buttonLabel}
-          <i className="fa-solid fa-plus"></i>
         </button>
         </>
   )}

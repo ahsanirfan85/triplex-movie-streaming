@@ -47,14 +47,28 @@
         width: 100%;
         height: 100%;
 
-        
-
         @include laptop {
             display: flex;
             justify-content: flex-end;
             align-items: flex-end;
             font-size: 1rem;
-            padding-bottom: 10rem;
+            padding: 0 0 4rem 4rem;
+        }
+
+        @include tablet {
+            display: flex;
+            justify-content: flex-end;
+            align-items: flex-end;
+            font-size: 1rem;
+            padding-bottom: 6rem;
+        }
+        
+        @include mobile {
+            display: flex;
+            justify-content: flex-end;
+            align-items: flex-end;
+            font-size: 1rem;
+            padding-bottom: 2rem;
         }
 
 

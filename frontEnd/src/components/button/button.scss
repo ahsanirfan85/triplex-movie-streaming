@@ -44,12 +44,53 @@ button {
 }
 
 .btn-like {
+    display: flex;
+    justify-content: flex-start;
     color: $white;
-    border: none;
+    border: 0;
     font-size: 1.2rem;
-    margin-right: 4rem;
+    padding: 0.5rem;
 
     background-color: transparent;
+    
+    
+    @include laptop {
+        width: 35%;
+        font-size: 1.2rem;
+    }
+
+    @include tablet {
+        width: 33%;
+        font-size: 1.5rem;
+    }
+    
+    @include mobile{
+        font-size: 1.2rem;
+        width: 100%;
+    }
+
+}
+
+.btn-like-wl {
+    display: flex;
+    justify-content: flex-start;
+    color: $white;
+    border: 0;
+    font-size: 1.2rem;
+    padding: 0.5rem;
+
+    background-color: transparent;
+    
+    @include mobile{
+        font-size: 1.2rem;
+    }
+
+    @include tablet {
+        width: 100%;
+        font-size: 1.5rem;
+    }
+
+
 }
 
 .btn-like:hover {

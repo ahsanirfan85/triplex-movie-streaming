@@ -92,6 +92,7 @@ iframe {
 
         @include mobile {
             margin-bottom: 2rem;
+            width: 100%;
         }
     }
 }
@@ -104,4 +105,8 @@ iframe {
 .section__details {
     @include flex(flex-start, center);
     flex-direction: column;
+
+    @include laptop {
+        @include flex(center, center);
+    }
 }

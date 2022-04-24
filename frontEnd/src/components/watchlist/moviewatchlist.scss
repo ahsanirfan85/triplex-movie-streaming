@@ -1,8 +1,8 @@
 @use "../../scss/" as *;
 
 .movie-content2 {
-    @include flex(flex-start, flex-start);
-    max-width: 1260px;
+    @include flex(center, center);
+    max-width: 100%;
     margin-left: auto;
     margin-right: auto;
     margin-top: 2rem;
@@ -10,7 +10,11 @@
     padding: 0 2rem;
 
     &__poster {
-        flex: 0.7;
+        flex: 0.5;
+
+        @include tablet {
+            flex:0.8;
+        }
 
 
         @include mobile {
@@ -28,9 +32,13 @@
     }
 
     &__info {
-        width: 70%;
+        width: 60%;
         padding-left: 2rem;
         position: relative;
+
+        @include tablet {
+            font-size: 1.2rem;
+        }
 
         @include mobile {
             width: 100%;
@@ -39,6 +47,10 @@
 
         & > * {
             margin-bottom: 2rem;
+
+            @include laptop {
+                margin-bottom: 1rem;
+            }
         }
 
         .title {
@@ -75,9 +87,9 @@
             margin-bottom: 0.5rem;
         }
 
-        &__name {
-            font-size: 0.8rem;
-        }
+        // &__name {
+        //     font-size: 0.8rem;
+        // }
     }
 }
 
@@ -95,22 +107,23 @@
     }
 }
 
-.social {
-    display: flex;
-    align-items: center;
-    flex-direction: row;
-    margin: 1.5rem 0;
+// .social-wl {
+//     display: flex;
+//     align-items: center;
+//     flex-direction: row;
+//     margin: 1.5rem 0;
+//     width: 100%;
 
-    &__link {
-        margin-right: 2rem;
-        background-color: $black;
-        border: 1px solid $white;
-        padding: 0.6rem 1.2rem;
-        text-align: center;
-        width: 200px
-    }
+//     &__link {
+//         margin-right: 2rem;
+//         background-color: $black;
+//         border: 1px solid $white;
+//         padding: 0.6rem 1.2rem;
+//         text-align: center;
+//         width: 200px
+//     }
 
-}
+// }
 
 .button-link {
     display: flex;
@@ -119,14 +132,15 @@
     margin: 1.5rem 0;
 }
 
-.rate-star {
-    @include flex(center, center);
+.rate-star-wl {
+    @include flex(flex-start, flex-start);
     flex-direction: row;
 
 
     &__item {
         font-size: 1.2rem;
-        margin-right: 1rem;
+        // margin-right: 1rem;
+
     }
 }
 
