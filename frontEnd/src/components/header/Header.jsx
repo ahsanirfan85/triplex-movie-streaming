@@ -26,12 +26,8 @@ const Header = () => {
     
     const loggedIn = [
         {
-            display: `${(getScr) ? Userfront.user.name : ""}`,
+            display: `${(getScr) ? ("Welcome, " + Userfront.user.name) : "Home"}`,
             path: ''
-        },
-        {
-            display: `${(getScr) ? "Home" : ""}`,
-            path: '/'
         },
         {
             display: 'Movies',
