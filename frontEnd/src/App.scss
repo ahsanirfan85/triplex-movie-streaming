@@ -63,8 +63,12 @@ iframe {
 }
 
 // .container {
-//     max-width: 1660px;
+    
+//     @include imac {
+//     max-width: 1640px;
 //     margin: auto;
+//     }
+
 // }
 
 .center-title {
@@ -89,6 +93,7 @@ iframe {
         justify-content: space-evenly;
         flex-wrap: wrap;
         margin-bottom: 3rem;
+        width: 100%;
 
         @include mobile {
             margin-bottom: 2rem;
@@ -103,7 +108,7 @@ iframe {
 }
 
 .section__details {
-    @include flex(flex-start, center);
+    @include flex(center, center);
     flex-direction: column;
 
     @include laptop {

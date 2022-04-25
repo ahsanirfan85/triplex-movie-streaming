@@ -41,6 +41,21 @@ button {
     border-width: 2px;
     padding: 0.6rem 2rem;
     font-size: 1rem;
+
+    @include laptop {
+        padding: 0.5rem 2rem;
+        font-size: 1rem;
+    }
+
+    @include tablet {
+        padding: 0.6rem 2rem;
+        font-size: 1rem;
+    }
+
+    @include mobile {
+        padding: 1rem 2rem;
+        font-size: 1.2rem;
+    }
 }
 
 .btn-like {
@@ -52,6 +67,10 @@ button {
     padding: 0.5rem;
 
     background-color: transparent;
+
+    @include imac{
+        margin-right: 2rem;
+    }
     
     
     @include laptop {
@@ -77,7 +96,8 @@ button {
     color: $white;
     border: 0;
     font-size: 1.2rem;
-    padding: 0.5rem;
+    padding: 0.7rem;
+    border: 1px solid #777777;
 
     background-color: transparent;
     
@@ -86,14 +106,14 @@ button {
     }
 
     @include tablet {
-        width: 100%;
+        width: auto;
         font-size: 1.5rem;
     }
 
 
 }
 
-.btn-like:hover {
+.btn-like-wl:hover {
     color: $main-color;
 }
 

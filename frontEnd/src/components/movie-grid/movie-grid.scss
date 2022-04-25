@@ -20,7 +20,6 @@
     width: 100%;
     max-width: 500px;
 
-
     input {
         width: 100%;
         padding: 1rem 0 0.8rem 1.5rem;
@@ -32,8 +31,7 @@
         top: 2px;
 
         @include mobile {
-            right: 1px;
-            top: 1px;
+            top: 2px;
         }
     }
 }

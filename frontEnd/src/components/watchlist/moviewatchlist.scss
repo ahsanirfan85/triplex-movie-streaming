@@ -48,6 +48,10 @@
         & > * {
             margin-bottom: 2rem;
 
+            @include imac{
+                font-size: 1.2rem;
+            }
+
             @include laptop {
                 margin-bottom: 1rem;
             }

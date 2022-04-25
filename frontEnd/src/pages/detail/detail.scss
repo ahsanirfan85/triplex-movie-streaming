@@ -84,6 +84,18 @@
         .title {
             font-size: 4rem;
             line-height: .8;
+
+            @include imac {
+                line-height: 1;
+            }
+
+            @include laptop {
+                line-height: 1;
+            }
+
+            @include tablet {
+                line-height: 1;
+            }
         }
 
         .genres {
@@ -187,6 +199,10 @@
         justify-content: center;
         align-items: center;
         font-size: 1.3rem;
+
+        @include imac{
+            margin-right: 0.6rem;
+        }
         
         @include laptop {
             margin-right: 1rem;
