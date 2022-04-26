@@ -29,6 +29,11 @@
             padding-top: 130%;
             margin-top: 0rem;
         }
+        &__img:hover {
+            cursor: pointer;
+            transform: scale(1.08);
+            transition: ease-in 0.1s;
+        }
     }
 
     &__info {
@@ -60,6 +65,10 @@
         .title {
             font-size: 2rem;
             line-height: 1;
+            
+        }
+        .date {
+            margin-top: 15px;
         }
 
         .genres {
